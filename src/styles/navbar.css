@@ -1,0 +1,31 @@
+
+
+.navbar--list{
+  list-style: none;
+  display:flex;
+  gap: 1.6rem;
+  padding-right: 3rem;
+  font-size: 1.2rem;
+}
+
+.navbar--list__item{
+  border: 1.3px solid var(--mid--color--red);
+  padding: 0.8rem 3rem;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+
+.navbar--list__item a{
+  text-decoration: none;
+  color: var(--hard--color--red);
+  font-size: 21px;
+
+}
+
+.navbar--list__item:hover{
+  background-color:var(--mid--color--red);
+  transform: scale(1.02);
+  transition: background-color  0.5s;
+}
+

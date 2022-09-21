@@ -1,0 +1,19 @@
+
+
+.header__container{
+  border: 1px solid rgba(0, 0, 0, 0.081);
+  background-color: white;
+  height: 9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo{
+  width: 15rem;
+  padding-left: 3rem;
+  transition: transform 1s;
+}
+.header__logo:hover{
+  transform: scale(1.02);
+}

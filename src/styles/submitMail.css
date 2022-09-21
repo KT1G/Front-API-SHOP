@@ -1,0 +1,16 @@
+
+
+.card{
+  border-radius: 8px;
+  padding: 1rem 2rem;
+}
+
+.card__title{
+  font-size: 1.5rem;
+}
+
+.card__button{
+  padding: 0.8rem 4rem;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
