@@ -1,17 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import useAuth from '../shared/hooks/useAuth'
 import '../styles/navbar.css'
+import NavbarLogged from './NavbarLogged'
+import NavbarNoLogged from './NavbarNoLogged'
 
 const Navbar = () => {
+
+  const {user, logout } = useAuth()
+  
   return (
-    <ul className='navbar--list'>
-      <li className='navbar--list__item'>
-        <Link to="/register">Register</Link>
-      </li>
-      <li className='navbar--list__item'>
-        <Link to="/login">Login</Link>
-      </li>
-    </ul>
+    user ? <NavbarLogged logout={logout} /> : <NavbarNoLogged/>
   )
 }
 

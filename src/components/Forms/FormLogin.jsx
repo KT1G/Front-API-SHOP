@@ -1,6 +1,9 @@
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
+import { useState } from 'react'
+import EyeToggle from '../EyeToggle'
+import Loading from '../Loading'
 
 
 
@@ -12,7 +15,8 @@ const schema = yup
   .required()
 
 
-const FormLogin = ({onSubmit}) => {
+const FormLogin = ({ onSubmit, loading }) => {
+  const [visible, setVisible] = useState(true)
 
   const {
     register,
@@ -25,7 +29,6 @@ const FormLogin = ({onSubmit}) => {
   return (
     <form className="form__container" onSubmit={handleSubmit(onSubmit)}>
       {/* INPUT 1 */}
-
       <fieldset className="form__group">
         <input
           className="form__group__input"
@@ -39,17 +42,15 @@ const FormLogin = ({onSubmit}) => {
         </label>
         <span className="form__group__line"></span>
       </fieldset>
-        {errors.email?.type === 'email' && (
-          <p>Debes introducir un correo valido</p>
-        )}
-        {errors.email?.type === 'required' && <p>Este campo es obligatorio</p>}
-
+      {errors.email?.type === 'email' && (
+        <p>Debes introducir un correo valido</p>
+      )}
+      {errors.email?.type === 'required' && <p>Este campo es obligatorio</p>}
       {/* INPUT 2 */}
-
       <fieldset className="form__group">
         <input
           className="form__group__input"
-          type="password"
+          type={!visible ? 'text' : 'password'}
           {...register('password')}
           name="password"
           placeholder=" "
@@ -58,15 +59,25 @@ const FormLogin = ({onSubmit}) => {
           Password:
         </label>
         <span className="form__group__line"></span>
+        <EyeToggle visible={visible} setVisible={setVisible} />
       </fieldset>
-        {errors.password?.type === 'required' && (
-          <p>Este campo es obligatorio </p>
-        )}{' '}
-        {errors.password?.type === 'min' && (
-          <p>La contraseña debe tener almenos 4 digitos </p>
-        )}
+      {errors.password?.type === 'required' && (
+        <p>Este campo es obligatorio </p>
+      )}{' '}
+      {errors.password?.type === 'min' && (
+        <p>La contraseña debe tener almenos 4 digitos </p>
+      )}
       {/* BOTON */}
-      <input className="button form__button" type="submit" value={'Inicia Sesión'} />
+
+      {!loading ? (
+        <input
+          className="button form__button"
+          type="submit"
+          value={'Iniciar Sesión'}
+        />
+      ) : (
+        <Loading />
+      )}
     </form>
   )
 }

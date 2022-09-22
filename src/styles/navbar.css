@@ -1,4 +1,4 @@
-.navbar--list {
+.navbar__list {
   list-style: none;
   display: flex;
   justify-content: center;
@@ -8,7 +8,7 @@
   
 }
 
-.navbar--list__item {
+.navbar__list__item {
   border: 1.3px solid var(--mid--color--red);
   flex: 1;
   padding: 0.8rem ;
@@ -16,14 +16,14 @@
   cursor: pointer;
 }
 
-.navbar--list__item a {
+.navbar__list__item a {
   text-decoration: none;
   color: var(--hard--color--red);
   font-size: 21px;
   padding: 1rem 1rem;
 }
 
-.navbar--list__item:hover {
+.navbar__list__item:hover {
   background-color: var(--mid--color--red);
   transform: scale(1.02);
   transition: background-color 0.5s;
@@ -33,12 +33,12 @@
 
 @media (max-width: 1000px) {
 
-  .navbar--list{
+  .navbar__list{
     flex: 1;
     gap:1rem;
     justify-content: end;
   }
-  .navbar--list__item {
+  .navbar__list__item {
     max-width: 10rem;
     padding: 0.5rem ;
     text-align: center;
@@ -51,18 +51,18 @@
 }
 @media (max-width: 600px) {
 
-  .navbar--list{
+  .navbar__list{
     flex: 1;
     gap:0.8rem;
     justify-content: end;
   }
-  .navbar--list__item {
+  .navbar__list__item {
     max-width: 10rem;
     padding: 0.4rem ;
     text-align: center;
     
   }
-  .navbar--list__item a {
+  .navbar__list__item a {
     padding: .2rem .2rem;
   }
  

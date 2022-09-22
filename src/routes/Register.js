@@ -1,8 +1,10 @@
 import { useState } from 'react'
-import { registerUserService } from '../shared/services'
+import { getUserMyDataService, registerUserService } from '../shared/services'
 import SubmitMail from '../components/SubmitMail'
-import FormTittle from '../components/FormTittle'
-import FormRegister from '../components/FormRegister'
+import FormTittle from '../components/Forms/FormTittle'
+import FormRegister from '../components/Forms/FormRegister'
+import ErrorMessage from '../components/ErrorMessage'
+
 
 
 const Register = () => {
@@ -16,8 +18,11 @@ const Register = () => {
       setloading(true)
       const message = await registerUserService(data)
       setResponse(message)
+      setloading(false)
     } catch (e) {
       setError(e.message)
+      
+    } finally {
       setloading(false)
     }
   }
@@ -31,9 +36,10 @@ const Register = () => {
       ) : (
         <SubmitMail response={response} />
       )}
-      
 
-      {error ? <p className='form__error'>{error}</p> : null}
+      {error ? (
+        <ErrorMessage className={'form__error'} error={error} />
+      ) : null}
     </section>
   )
 }

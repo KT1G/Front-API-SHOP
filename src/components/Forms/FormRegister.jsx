@@ -1,7 +1,10 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { useForm } from 'react-hook-form'
-import Loading from './Loading'
+import Loading from '../Loading'
+import { useState } from 'react'
+import EyeToggle from '../EyeToggle'
+
 
 
 const schema = yup
@@ -14,7 +17,9 @@ const schema = yup
 
   
 const FormRegister = ({ onSubmit, loading }) => {
-    
+  const [visible, setVisible] = useState(true)
+ 
+
   const {
     register,
     handleSubmit,
@@ -68,7 +73,7 @@ const FormRegister = ({ onSubmit, loading }) => {
       <fieldset className="form__group">
         <input
           className="form__group__input"
-          type="password"
+          type={!visible ? 'text' : 'password'}
           {...register('password')}
           name="password"
           placeholder=" "
@@ -77,6 +82,8 @@ const FormRegister = ({ onSubmit, loading }) => {
           Password:
         </label>
         <span className="form__group__line"></span>
+        <EyeToggle visible={visible} setVisible={setVisible} />
+        
       </fieldset>
         {errors.password?.type === 'required' && (
           <p>Este campo es obligatorio </p>
