@@ -1,8 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .main__container {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  min-width: 600px;
-  height: 100vh;
+  background-color: var(--soft--color--gray);
   background-color: var(--soft--color--gray);
 }
 
@@ -11,8 +17,8 @@
 .form {
   background-color: rgb(255, 255, 255);
   margin: auto;
-  width: 90%;
-  max-width: 400px;
+  width: 550px;
+  min-height: 550px;
   padding: 3em 3em;
   border-radius: 8px;
   box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
@@ -20,19 +26,21 @@
 }
 
 .form__title {
-  font-size: 2rem;
-  margin-bottom: 0.3rem;
+  font-size: 1.5rem;
+  margin-bottom: 0.9rem;
 }
 
 .form__text {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+  font-size: 1rem;
+  margin-bottom: 1.4rem;
   color: var(--main--color--gray);
 }
 
 .form__container {
   display: grid;
-  gap: 1em;
+  gap: 3em;
+  width: 86%;
+  margin: auto;
 }
 
 .form__group {
@@ -43,8 +51,8 @@
 
 .form__group__input {
   width: 100%;
-  font-size: 1.5rem;
-  padding: 0.4em 0.3em;
+  font-size: 1.3rem;
+  padding: 0.7em 0.4em;
   border: none;
   outline: none;
   border-bottom: 2px solid var(--hard--color--gray);
@@ -53,7 +61,7 @@
 
 .form__group__input:focus + .form__group__label,
 .form__group__input:not(:placeholder-shown) + .form__group__label {
-  transform: translateY(-13px) scale(0.7);
+  transform: translateY(-20px) scale(0.7);
   transform-origin: left top;
   color: var(--soft--color--blue);
 }
@@ -61,22 +69,29 @@
 .form__group__label {
   cursor: pointer;
   position: absolute;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   top: 0;
-  left: 13px;
-  transform: translateY(20px);
+  left: 2px;
+  transform: translateY(25px);
   transition: transform 0.1s, color 0.3s;
 }
 
 .button {
   background-color: var(--main--color--red);
   font-family: 'Roboto', sans-serif;
+  border: none;
   color: white;
   cursor: pointer;
-  font-weight: 300px;
-  font-size: 1.3rem;
-  padding: 0.7rem 0;
+  font-weight: 400px;
+  width: 100%;
+  margin: auto;
+  font-size: 1.4rem;
+  padding: 0.5rem 0;
   border-radius: 10px;
+}
+
+.form__button {
+  margin-bottom: 1rem;
 }
 .form__button:hover {
   background-color: var(--hard--color--red);
@@ -86,8 +101,9 @@
 
 .form__group__line {
   position: absolute;
-  left: 12px;
-  width: 97.5%;
+  left: 0;
+  bottom: 0px;
+  width: 100%;
   height: 1px;
   background-color: var(--soft--color--blue);
   transform: scale(0);
@@ -100,9 +116,25 @@
 }
 
 form p {
-  font-size: 1rem;
-  margin-bottom: 20px;
-  margin-top: 10px;
+  margin-top: -2.5rem;
+  font-size: 1.1rem;
   text-align: left;
   color: var(--main--color--red);
+}
+
+.form__error {
+  font-size: 1.4rem;
+}
+
+@media (max-width: 750px) {
+  .form {
+    width: 100%;
+  }
+  .form__container {
+    gap: 1.6em;
+    width: 100%;
+    margin: auto;
+  }
+ 
+
 }

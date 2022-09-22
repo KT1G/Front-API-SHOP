@@ -1,31 +1,69 @@
-
-
-.navbar--list{
+.navbar--list {
   list-style: none;
-  display:flex;
+  display: flex;
+  justify-content: center;
   gap: 1.6rem;
-  padding-right: 3rem;
-  font-size: 1.2rem;
+  margin-right: 2rem;
+ 
+  
 }
 
-.navbar--list__item{
+.navbar--list__item {
   border: 1.3px solid var(--mid--color--red);
-  padding: 0.8rem 3rem;
+  flex: 1;
+  padding: 0.8rem ;
   border-radius: 20px;
   cursor: pointer;
 }
 
-
-.navbar--list__item a{
+.navbar--list__item a {
   text-decoration: none;
   color: var(--hard--color--red);
   font-size: 21px;
-
+  padding: 1rem 1rem;
 }
 
-.navbar--list__item:hover{
-  background-color:var(--mid--color--red);
+.navbar--list__item:hover {
+  background-color: var(--mid--color--red);
   transform: scale(1.02);
-  transition: background-color  0.5s;
+  transition: background-color 0.5s;
 }
 
+
+
+@media (max-width: 1000px) {
+
+  .navbar--list{
+    flex: 1;
+    gap:1rem;
+    justify-content: end;
+  }
+  .navbar--list__item {
+    max-width: 10rem;
+    padding: 0.5rem ;
+    text-align: center;
+    
+  }
+  .navbar--list__item a {
+    padding: 0.5rem 0.5rem
+  }
+ 
+}
+@media (max-width: 600px) {
+
+  .navbar--list{
+    flex: 1;
+    gap:0.8rem;
+    justify-content: end;
+  }
+  .navbar--list__item {
+    max-width: 10rem;
+    padding: 0.4rem ;
+    text-align: center;
+    
+  }
+  .navbar--list__item a {
+    padding: .2rem .2rem;
+  }
+ 
+}

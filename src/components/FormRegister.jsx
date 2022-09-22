@@ -1,6 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { useForm } from 'react-hook-form'
+import Loading from './Loading'
 
 
 const schema = yup
@@ -12,7 +13,7 @@ const schema = yup
   .required()
 
   
-const FormRegister = ({ onSubmit }) => {
+const FormRegister = ({ onSubmit, loading }) => {
     
   const {
     register,
@@ -36,11 +37,11 @@ const FormRegister = ({ onSubmit }) => {
           Nick:
         </label>
         <span className="form__group__line"></span>
+      </fieldset>
         {errors.name?.type === 'name' && (
           <p>Debes introducir un nombre valido</p>
         )}
         {errors.name?.type === 'required' && <p>Este campo es obligatorio</p>}
-      </fieldset>
 
       {/* INPUT 2 */}
 
@@ -56,11 +57,11 @@ const FormRegister = ({ onSubmit }) => {
           Email:
         </label>
         <span className="form__group__line"></span>
+      </fieldset>
         {errors.email?.type === 'email' && (
           <p>Debes introducir un correo valido</p>
         )}
         {errors.email?.type === 'required' && <p>Este campo es obligatorio</p>}
-      </fieldset>
 
       {/* INPUT 3 */}
 
@@ -76,15 +77,15 @@ const FormRegister = ({ onSubmit }) => {
           Password:
         </label>
         <span className="form__group__line"></span>
+      </fieldset>
         {errors.password?.type === 'required' && (
           <p>Este campo es obligatorio </p>
         )}{' '}
         {errors.password?.type === 'min' && (
           <p>La contraseña debe tener almenos 4 digitos </p>
         )}
-      </fieldset>
       {/* input boton */}
-      <input className="button form__button" type="submit" value={'Crear Cuenta'} />
+      {!loading ? <input className="button form__button" type="submit" value={'Crear Cuenta'} />: <Loading/>}
     </form>
   )
 }

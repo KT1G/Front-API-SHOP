@@ -1,7 +1,7 @@
 import React from 'react'
 
 const FormTittle = ({
-  title = 'Bienvenido a API SHOP',
+  title = '¡Bienvenido a API SHOP!',
   text = 'Registrate a continuación',
 }) => {
   return (

@@ -2,9 +2,10 @@
 
 body {
   margin: 0;
-   font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
@@ -12,17 +13,15 @@ code {
     monospace;
 }
 
-
 :root {
-  --main--color--red: #BF0025;
-  --hard--color--red:#6f051a;
-  --mid--color--red:#d7607873;
-  --soft--color--red:#F7DFE4;
+  --main--color--red: #bf0025;
+  --hard--color--red: #6f051a;
+  --mid--color--red: #d7607873;
+  --soft--color--red: #f7dfe4;
 
-  --main--color--gray:#B7B1B2;
-  --soft--color--gray:#e2dfe0;
-  --hard--color--gray:#898888;
+  --main--color--gray: #b7b1b2;
+  --soft--color--gray: #ECEFF1;
+  --hard--color--gray: #898888;
 
-  --soft--color--blue:rgb(77, 130, 255);
-  
+  --soft--color--blue: rgb(77, 130, 255);
 }

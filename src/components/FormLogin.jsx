@@ -38,11 +38,11 @@ const FormLogin = ({onSubmit}) => {
           Email:
         </label>
         <span className="form__group__line"></span>
+      </fieldset>
         {errors.email?.type === 'email' && (
           <p>Debes introducir un correo valido</p>
         )}
         {errors.email?.type === 'required' && <p>Este campo es obligatorio</p>}
-      </fieldset>
 
       {/* INPUT 2 */}
 
@@ -58,13 +58,13 @@ const FormLogin = ({onSubmit}) => {
           Password:
         </label>
         <span className="form__group__line"></span>
+      </fieldset>
         {errors.password?.type === 'required' && (
           <p>Este campo es obligatorio </p>
         )}{' '}
         {errors.password?.type === 'min' && (
           <p>La contraseña debe tener almenos 4 digitos </p>
         )}
-      </fieldset>
       {/* BOTON */}
       <input className="button form__button" type="submit" value={'Inicia Sesión'} />
     </form>
