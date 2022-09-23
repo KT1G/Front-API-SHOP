@@ -1,8 +1,13 @@
 import React from 'react'
 
+import Loader from './Icons/Loader'
+
+
 const Loading = () => {
   return (
-    <div >Loading</div>
+    <div className='loader'>
+      <Loader/>
+    </div>
   )
 }
 

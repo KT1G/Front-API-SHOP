@@ -1,0 +1,29 @@
+.modal {
+  min-height: 200px;
+  background-color: white;
+  padding: 0 2.5rem;
+  max-width:500px ;
+  gap: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card__title {
+  font-size: 1.5rem;
+  max-width: 100%;
+}
+
+.card__button {
+  background-color: var(--main--color--red);
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: 400px;
+  width: 100px;
+  font-size: 1.4rem;
+  padding: 0.5rem 0;
+  border-radius: 10px;
+}
