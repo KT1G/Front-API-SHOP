@@ -1,10 +1,10 @@
+import { BestCatergories } from "../components/home/BestCatergories"
 
 
 const Homepage = () => {
   return (
     <section>
-      <div> hola desde section</div>
-      
+      <BestCatergories />
     </section>
   )
 }

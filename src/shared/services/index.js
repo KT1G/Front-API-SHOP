@@ -74,3 +74,20 @@ export const getUserMyDataService = async (token) => {
 
   return data.data
 }
+
+export const getProductsService = async (path) => {
+  const response = await fetch(`${apiUrl}${path}`, {
+    method: requestMethods.get,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+
+  const data = await response.json()
+
+  if (data.status) {
+    throw new Error(data.message)
+  }
+
+  return data
+}

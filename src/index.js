@@ -10,6 +10,8 @@ import Homepage from './routes/Homepage'
 import Login from './routes/Login'
 import Register from './routes/Register'
 import { AuthProviderComponent } from './shared/context/AuthContext'
+import { BestCatergories } from './components/home/BestCatergories'
+import { ProductsList } from './components/products/ProductsList'
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register />,
+      },
+      {
+        path: '/products/filterBy/category/:category',
+        element: <ProductsList />,
+      },
+      {
+        path: '/products/filterBy/search/:search',
+        element: <ProductsList />,
       },
     ],
   },
