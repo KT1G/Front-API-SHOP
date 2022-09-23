@@ -1,5 +1,6 @@
 const apiUrl = process.env.REACT_APP_BACKEND
 
+
 const requestMethods = { post: 'POST', get: 'GET', put: 'PUT' }
 
 const endpoints = {
@@ -7,7 +8,6 @@ const endpoints = {
   authEnpoint: 'auth',
   userEnpoint: 'users',
 }
-
 const selectHeaders = (value, token) => {
   const contentHeaders = {
     json: {
@@ -26,6 +26,7 @@ const selectHeaders = (value, token) => {
   }
   return contentHeaders
 }
+
 
 export const registerUserService = async (body) => {
   const response = await fetch(`${apiUrl}${endpoints.accuntsEnpoint}`, {
