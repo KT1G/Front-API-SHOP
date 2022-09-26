@@ -10,7 +10,7 @@ const useProducts = () => {
     const [error, setError] = useState(null);
 
     const location = useLocation();
-    
+    console.log(location);
     useEffect(() => {
         const loadProducts = async () => {
             try {

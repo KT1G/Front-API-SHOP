@@ -1,6 +1,4 @@
 const Card = ({ section, element }) => {
-    console.log(element);
-
     //img src añadir http://localhost:9000/uploads/products/4/
     return (
         <li className="element">

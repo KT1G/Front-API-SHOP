@@ -24,19 +24,31 @@ const router = createBrowserRouter([
         element: <Homepage />,
       },
       {
-        path: '/login',
+        path: 'login',
         element: <Login />,
       },
       {
-        path: '/register',
+        path: 'register',
         element: <Register />,
       },
       {
-        path: '/products/filterBy/category/:category',
+        path: 'products/filterBy/name/:name',
         element: <ProductsList />,
       },
       {
-        path: '/products/filterBy/search/:search',
+        path: 'products/filterBy/category/:category',
+        element: <ProductsList />,
+      },
+      {
+        path: 'products/filterBy/search/:search',
+        element: <ProductsList />,
+      },
+      {
+        path: 'products',
+        element: <ProductsList />,
+      },
+      {
+        path: 'likes/filterBy/loverId/:lover_id',
         element: <ProductsList />,
       },
     ],
