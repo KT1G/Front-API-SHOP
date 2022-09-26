@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import useAuth from '../../shared/hooks/useAuth'
 import '../../styles/navbar.css'
 import NavbarLogged from './NavbarLogged'
