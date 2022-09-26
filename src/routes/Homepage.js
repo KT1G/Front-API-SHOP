@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
-import { BestCatergories } from "../components/home/BestCatergories"
+import { CategoriesList } from "../components/home/CategoriesList"
 
 
 const Homepage = () => {
   return (
     <section>
-      <BestCatergories />
+      <CategoriesList />
       <button><Link to='/products' >All Products</Link></button>
     </section>
   )
