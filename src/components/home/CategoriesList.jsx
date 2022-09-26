@@ -1,16 +1,15 @@
-import { Category } from "./Category"
+import useCategories from "../../shared/hooks/useCategories";
+import { Categories } from "./Categories"
 
 export const CategoriesList = () => {
-    const categories = ['desktop','notebook','tablet','smartphone','ebook','smartwhatch','console','tv','camera','mouse','keyboard','headset','speaker','printer','scanner','charger',
-        ] 
+    const { ranking, loading, error } = useCategories();
+
+    if (loading) return <p>Loading...</p>
+    if (error) return <p>{error}</p>
     return (
-        //map de las 5 primeras categorias de categories
-        <ul>
-            {categories.map((category, index) => {
-                return (
-                    <Category key={index} category={category} />
-                )
-            })}
-        </ul>
+        <section>
+            <h2>Top 5 Best Categories</h2>
+            <Categories ranking={ranking} />
+        </section>
     )
 }

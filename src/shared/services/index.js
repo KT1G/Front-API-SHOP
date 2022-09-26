@@ -91,3 +91,21 @@ export const getProductsService = async (path) => {
 
   return data
 }
+
+export const getCategoriesService = async () => {
+  const response = await fetch(`${apiUrl}products/filterBy/rankingCategories`, {
+    method: requestMethods.get,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+
+  const data = await response.json()
+  console.log(data);
+
+  if (data.status) {
+    throw new Error(data.message)
+  }
+
+  return data
+}
