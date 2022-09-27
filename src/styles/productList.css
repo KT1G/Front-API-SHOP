@@ -8,6 +8,10 @@
   gap: 2rem;
 }
 
+
+.productList__container > a{
+  margin: 2rem 0 4rem 0;}
+
 .producList__header {
   width: 100vw;
   background-color: var(--soft--color--red);
