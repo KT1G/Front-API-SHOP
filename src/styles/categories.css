@@ -60,7 +60,6 @@
   height: 17rem;
   display: flex;
   border-radius: 10px;
-
   align-items: center;
   overflow: hidden;
   max-height: 30rem;
@@ -137,7 +136,7 @@
 
 @media (max-width: 630px) {
   .categories__list {
-    width: 95%;
+    width: 100%;
     grid-template-columns: repeat(1, 1fr);
     grid-template-areas: 'obj1' 'obj2' 'obj3' 'obj4' 'obj5';
   }
@@ -146,7 +145,30 @@
     grid-column: span 2;
     border: none;
   }
+  .categories__element__image{
+    width: 100%;
+  }
   .categories__title {
     font-size: 2.5rem;
   }
+
+  .categories__text {
+  margin-left: 0.4rem;
+  
+}
+  
+}
+
+@media (max-width: 380px){
+  
+  .categories__title {
+    font-size: 1.8rem;
+  }
+  .categories__text {
+  text-align: center;
+  
+}
+.categories__container > a > button{
+  width: 10rem;
+}
 }

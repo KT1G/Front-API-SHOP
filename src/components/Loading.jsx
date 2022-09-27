@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
 import useWait from '../shared/hooks/useWait'
-
 import Loader from './Icons/Loader'
 
 

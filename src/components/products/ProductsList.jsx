@@ -6,6 +6,8 @@ import ErrorMessage from "../ErrorMessage";
 import Loading from "../Loading";
 import Modal from "../Modal/Modal";
 import { Products } from "./Products";
+import '../../styles/productList.css'
+
 
 export const ProductsList = () => {
     //Recuperara el resultado de la busqueda
@@ -27,9 +29,9 @@ export const ProductsList = () => {
       </Modal>
     )
     return (
-        <section>
-            <header className="header__container">
-                <nav className="navbar--list">
+        <section className="productList__container">
+            <header className="producList__header">
+                <nav className="productList__header__nav">
                     <button onClick={() => info.prevPage && navigate(info.prevPage)}>Prev</button>
                     <h1>Products List: {filter}</h1>
                     <button onClick={() => info.nextPage && navigate(info.nextPage)}>Next</button>
