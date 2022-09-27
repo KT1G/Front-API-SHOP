@@ -14,18 +14,20 @@ const Login = () => {
   const { login } = useAuth()
   const navigate = useNavigate()
 
-  const onSubmit = async (data) => {
+  const onSubmit = (data) => {
     try {
-      setError('')
       setloading(true)
-      const { accessToken } = await loginUserService(data)
-      login(accessToken)
-      if (login) navigate('/')
+      setError('')
+      /* Añadimos retardo para que se pueda ver el Loader */
+       setTimeout(async () => {
+        const { accessToken } = await loginUserService(data)
+        login(accessToken)
+         if (login) navigate('/')
+         setloading(false)
+      },900)
     } catch (e) {
       setError(e.message)
-    } finally {
-      setloading(false)
-    }
+    } 
   }
 
   return (

@@ -1,7 +1,7 @@
 .modal {
-  min-height: 200px;
+  min-height: 150px;
   background-color: white;
-  padding: 0 2.5rem;
+  padding: 2rem 2.5rem;
   max-width:500px ;
   gap: 1rem;
   border-radius: 10px;
@@ -9,9 +9,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
+ 
 }
 .card__title {
-  font-size: 1.5rem;
+  font-size: 1rem;
   max-width: 100%;
 }
 
@@ -21,9 +23,13 @@
   border: none;
   color: white;
   cursor: pointer;
-  font-weight: 400px;
-  width: 100px;
+  width: 20rem;
   font-size: 1.4rem;
   padding: 0.5rem 0;
   border-radius: 10px;
+}
+
+.card__button:hover{
+  background-color: var(--hard--color--red);
+  transition: 0.3s;
 }

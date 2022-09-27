@@ -5,7 +5,7 @@ body {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+  background-color: var(--soft--color--gray);
 }
 
 code {
@@ -24,4 +24,10 @@ code {
   --hard--color--gray: #898888;
 
   --soft--color--blue: rgb(77, 130, 255);
+
+  --category--color--orange:#FF9801;
+  --category--color--salmon:#FF6B67;
+  --category--color--yellow:#E0FFB1;
+  --category--color--pink:#FFCFE7;
+  --category--color--green:#00FFD3;
 }

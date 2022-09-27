@@ -11,6 +11,7 @@ const useCategories = () => {
             try {
                 setLoading(true);
                 const categories = await getCategoriesService();
+            
                 setRanking(categories);
             } catch (error) {
                 setError(error.message);

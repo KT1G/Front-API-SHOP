@@ -16,8 +16,8 @@ export const Search = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="Search" onChange={handleChange} value={text} />
+        <form className="header__form" onSubmit={handleSubmit}>
+            <input className="header__input" type="text" placeholder="Search" onChange={handleChange} value={text} />
         </form>
     )
 }

@@ -11,6 +11,7 @@ import Login from './routes/Login'
 import Register from './routes/Register'
 import { AuthProviderComponent } from './shared/context/AuthContext'
 import { ProductsList } from './components/products/ProductsList'
+import Profile from './routes/Profile'
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: 'likes/filterBy/loverId/:filter',
         element: <ProductsList />,
+      },
+      {
+        path: '/profile',
+        element: <Profile />,
       },
     ],
   },

@@ -4,9 +4,8 @@ import { CategoriesList } from "../components/home/CategoriesList"
 
 const Homepage = () => {
   return (
-    <section>
+    <section className="homepage___container">
       <CategoriesList />
-      <button><Link to='/products' >All Products</Link></button>
     </section>
   )
 }

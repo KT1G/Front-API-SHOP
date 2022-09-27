@@ -1,5 +1,10 @@
 import { useNavigate, useParams } from "react-router-dom";
+import Homepage from "../../routes/Homepage";
 import useProducts from "../../shared/hooks/useProducts";
+import ButtonTo from "../ButtonTo";
+import ErrorMessage from "../ErrorMessage";
+import Loading from "../Loading";
+import Modal from "../Modal/Modal";
 import { Products } from "./Products";
 
 export const ProductsList = () => {
@@ -14,8 +19,13 @@ export const ProductsList = () => {
     console.log(info);
     const { filter } = useParams();
     console.log(filter);
-    if (loading) return <p>Loading...</p>
-    if (error) return <p>{error}</p>
+    if (loading) return <Loading classe={"loader__products"}/>
+    if (error) return (
+      <Modal>
+        <ErrorMessage error={error} />
+        <ButtonTo  text={'Home'} classe={'card__button'} />
+      </Modal>
+    )
     return (
         <section>
             <header className="header__container">

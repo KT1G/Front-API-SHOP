@@ -4,18 +4,15 @@ import FormTittle from '../components/Forms/FormTittle'
 import FormRegister from '../components/Forms/FormRegister'
 import ErrorMessage from '../components/ErrorMessage'
 import Modal from '../components/Modal/Modal'
-import ButtonNav from '../components/ButtonNav'
 import useModal from '../shared/hooks/useModal'
-
-
+import ButtonTo from '../components/ButtonTo'
 
 const Register = () => {
   const [error, setError] = useState('')
   const [response, setResponse] = useState('')
   const [loading, setloading] = useState(false)
-  
-  const {close,open, modalOpen} = useModal()
- 
+
+  const { close, open, modalOpen } = useModal()
 
   const onSubmit = async (data) => {
     try {
@@ -23,11 +20,9 @@ const Register = () => {
       setloading(true)
       const message = await registerUserService(data)
       setResponse(message)
-      setloading(false)
-      open()
+        open()
     } catch (e) {
       setError(e.message)
-      
     } finally {
       setloading(false)
     }
@@ -39,9 +34,9 @@ const Register = () => {
       {error ? <ErrorMessage className={'form__error'} error={error} /> : null}
     </section>
   ) : (
-      <Modal response={response} >
+    <Modal response={response}>
       <p className="card__title">{response}</p>
-      <ButtonNav to="/login" text={'login'} classe={'card__button'} />
+      <ButtonTo to="/login" text={'login'} classe={'card__button'} />
     </Modal>
   )
 }
