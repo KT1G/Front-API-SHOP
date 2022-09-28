@@ -12,7 +12,7 @@ import Register from './routes/Register'
 import { AuthProviderComponent } from './shared/context/AuthContext'
 import { ProductsList } from './components/products/ProductsList'
 import Profile from './routes/Profile'
-import Footer from './components/Footer'
+import Confirm from './routes/Confirm'
 
 const router = createBrowserRouter([
   {
@@ -56,8 +56,14 @@ const router = createBrowserRouter([
         path: '/profile',
         element: <Profile />,
       },
+      {
+        path: 'accounts/confirm/:id',
+        element: <Confirm/>
+      }
     ],
+      
   },
+  
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'))

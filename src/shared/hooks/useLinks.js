@@ -8,9 +8,16 @@ const useNavMovilLinks = (elementos) => {
   const { user } = useAuth()
   let location = useLocation()
   let path = location.pathname
-  console.log(path)
+  
   let linkTo = null
   let linkInicio = null
+  
+    const selectLinkTo = (link) => {
+      linkTo = user ? links[link] : 'login'
+      linkInicio = !user && link === 'Inicio' ? '/' : 'login'
+      if (user) return linkTo
+      if (!user) return linkInicio
+    }
 
   const links = {
     Inicio: '/',
@@ -38,14 +45,6 @@ const useNavMovilLinks = (elementos) => {
         break
     }
   }, [path])
-
-  const selectLinkTo = (user, link) => {
-    linkTo = user ? links[link] : 'login'
-    linkInicio = !user && link === 'Inicio' ? '/' : 'login'
-
-    if (user) return linkTo
-    if (!user) return linkInicio
-  }
 
   return { selectLinkTo, selected, setSelected }
 }

@@ -1,12 +1,12 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import useProducts from '../../shared/hooks/useProducts'
 import ButtonTo from '../ButtonTo'
-import ErrorMessage from '../ErrorMessage'
+import Message from '../Message'
 import Loading from '../Loading'
 import Modal from '../Modal/Modal'
 import { Products } from './Products'
 import '../../styles/productList.css'
-import NavbarMovil from '../Header/NavbarMovil'
+
 
 export const ProductsList = () => {
   //Recuperara el resultado de la busqueda
@@ -16,15 +16,13 @@ export const ProductsList = () => {
   const navigate = useNavigate()
 
   //Recuperar el parametro de la url con useParams
-  console.log(products)
-  console.log(info)
+  
   const { filter } = useParams()
-  console.log(filter)
   if (loading) return <Loading classe="loader__products" />
   if (error)
     return (
       <Modal>
-        <ErrorMessage error={error} />
+        <Message text={error} />
         <ButtonTo text="Home" classe="modal__button" />
       </Modal>
     )
