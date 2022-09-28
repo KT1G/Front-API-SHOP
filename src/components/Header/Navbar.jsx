@@ -6,7 +6,8 @@ import NavbarNoLogged from './NavbarNoLogged'
 
 const Navbar = () => {
 
-  const {user, logout } = useAuth()
+  const { user, logout } = useAuth()
+  console.log("mensaja desde el navbar" + user)
   
   return (
     user ? <NavbarLogged logout={logout} /> : <NavbarNoLogged/>

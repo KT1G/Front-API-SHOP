@@ -1,13 +1,13 @@
 import { useState } from 'react'
 
 const useWait = (time) => {
-  const [wait, setWait] = useState(false)
+  const [ready, setReady] = useState(false)
 
   setTimeout(() => {
-      setWait(true)
+    setReady(true)
   }, time)
-  
-  return {wait}
+
+  return { ready }
 }
 
 export default useWait

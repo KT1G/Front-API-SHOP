@@ -1,12 +1,13 @@
-const apiUrl = process.env.REACT_APP_BACKEND
 
+
+const apiUrl = process.env.REACT_APP_BACKEND
 
 const requestMethods = { post: 'POST', get: 'GET', put: 'PUT' }
 
 const endpoints = {
-  accuntsEnpoint: 'accounts',
-  authEnpoint: 'auth',
-  userEnpoint: 'users',
+  accuntsEnpoint: '/accounts',
+  authEnpoint: '/auth',
+  userEnpoint: '/users',
 }
 const selectHeaders = (value, token) => {
   const contentHeaders = {
@@ -26,7 +27,6 @@ const selectHeaders = (value, token) => {
   }
   return contentHeaders
 }
-
 
 export const registerUserService = async (body) => {
   const response = await fetch(`${apiUrl}${endpoints.accuntsEnpoint}`, {
@@ -52,16 +52,19 @@ export const loginUserService = async (body) => {
   })
 
   const data = await response.json()
+  
 
-  if (!response.ok) {
+  if (data.status !== 'ok') {
     throw new Error(data.message)
   }
-
-  return data
+  
+  return data.data
+ 
 }
 
 export const getUserMyDataService = async (token) => {
   const response = await fetch(`${apiUrl}${endpoints.userEnpoint}`, {
+    method:requestMethods.get,
     headers: selectHeaders('auth', token),
   })
 
@@ -76,11 +79,10 @@ export const getUserMyDataService = async (token) => {
 }
 
 export const getProductsService = async (path) => {
+  console.log(`${apiUrl}${path}`)
   const response = await fetch(`${apiUrl}${path}`, {
     method: requestMethods.get,
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers: selectHeaders('json'),
   })
 
   const data = await response.json()
@@ -93,15 +95,12 @@ export const getProductsService = async (path) => {
 }
 
 export const getCategoriesService = async () => {
-  const response = await fetch(`${apiUrl}products/filterBy/rankingCategories`, {
+  const response = await fetch(`${apiUrl}/products/filterBy/rankingCategories`, {
     method: requestMethods.get,
-    headers: {
-      'Content-Typ': 'application/json',
-    },
+    headers: selectHeaders('json'),
   })
 
   const data = await response.json()
-  console.log(data);
 
   if (data.status) {
     throw new Error(data.message)
@@ -109,3 +108,18 @@ export const getCategoriesService = async () => {
 
   return data
 }
+
+export const getValidateAccountService = (async (path) => {
+  const response = await fetch(`${apiUrl}${path}`, {
+    method: requestMethods.get,
+  })
+
+  const data = await response.json()
+  console.log(data)
+
+  if (data.status !== 'created') {
+    throw new Error(data.message)
+  }
+
+  return data
+})

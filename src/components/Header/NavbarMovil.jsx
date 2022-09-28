@@ -21,10 +21,10 @@ const NavbarMovil = () => {
   return (
     <nav className="navbar--movil__container">
       <ul className="navbar--movil__list">
-        {buttons.map((buttonNav) => {
-          linkClass = selected === buttonNav ? 'selected' : ''
-          fillContent = selected === buttonNav ? '#FF6B67' : 'white'
-          text = buttons.find((el) => el === buttonNav)
+        {buttons.map((buttonLink) => {
+          linkClass = selected === buttonLink ? 'selected' : ''
+          fillContent = selected === buttonLink ? '#FF6B67' : 'white'
+          text = buttons.find((el) => el === buttonLink)
 
           const render = {
             Inicio: <Home fill={fillContent} />,
@@ -36,14 +36,14 @@ const NavbarMovil = () => {
 
           return (
             <ButtonList
-              key={buttonNav}
-              render={() => setSelected(buttonNav)}
-              to={selectLinkTo(user, buttonNav)}
+              key={buttonLink}
+              render={() => setSelected(buttonLink)}
+              to={selectLinkTo(buttonLink)}
               classe={`navbar--movil__list__item ${linkClass}`}
               text={text}
             >
-              {render[buttonNav]}
-              {selected === buttonNav ? (
+              {render[buttonLink]}
+              {selected === buttonLink ? (
                 <motion.div className="underline" layoutId="underline" />
               ) : null}
             </ButtonList>
