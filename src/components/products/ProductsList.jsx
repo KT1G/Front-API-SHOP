@@ -6,6 +6,7 @@ import Loading from '../Loading'
 import Modal from '../Modal/Modal'
 import { Products } from './Products'
 import '../../styles/productList.css'
+import NavbarMovil from '../Header/NavbarMovil'
 
 export const ProductsList = () => {
   //Recuperara el resultado de la busqueda
@@ -24,12 +25,13 @@ export const ProductsList = () => {
     return (
       <Modal>
         <ErrorMessage error={error} />
-        <ButtonTo text="Home" classe="card__button" />
+        <ButtonTo text="Home" classe="modal__button" />
       </Modal>
     )
   return (
     <section className="productList__container">
       <header className="producList__header">
+        
         <nav className="productList__header__nav">
           <button onClick={() => info.prevPage && navigate(info.prevPage)}>
             Prev

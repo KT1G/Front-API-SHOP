@@ -33,3 +33,16 @@
   background-color: var(--hard--color--red);
   transition: 0.3s;
 }
+
+.modal__button{
+  background-color: var(--main--color--red);
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  color: white;
+  cursor: pointer;
+  width: 9rem;
+  font-size: 1.4rem;
+  padding: 0.4rem 0;
+  border-radius: 10px;
+
+}
