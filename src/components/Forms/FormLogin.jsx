@@ -4,6 +4,7 @@ import * as yup from 'yup'
 import { useState } from 'react'
 import EyeToggle from '../EyeToggle'
 import Loading from '../Loading'
+import FooterForm from './FooterForm'
 
 
 
@@ -68,7 +69,6 @@ const FormLogin = ({ onSubmit, loading }) => {
         <p>La contraseña debe tener almenos 4 digitos </p>
       )}
       {/* BOTON */}
-     
       {!loading ? (
         <input
           className="button form__button"
@@ -78,6 +78,7 @@ const FormLogin = ({ onSubmit, loading }) => {
       ) : (
         <Loading />
       )}
+      <FooterForm/>
     </form>
   )
 }

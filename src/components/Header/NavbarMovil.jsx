@@ -1,46 +1,30 @@
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 import React from 'react'
-import { useState } from 'react'
 import useAuth from '../../shared/hooks/useAuth'
 import ButtonList from '../ButtonList'
 import HeartMovil from '../Icons/HeartMovil'
 import Home from '../Icons/Home'
 import Mail from '../Icons/Mail'
 import MeMovil from '../Icons/MeMovil'
-
 import PlusCircleMovil from '../Icons/PlusCircleMovil'
+import useNavMovilLinks from '../../shared/hooks/useLinks'
 
 const NavbarMovil = () => {
   const { user } = useAuth()
-  const [selected, setSelected] = useState()
+  const buttons = ['Inicio', 'Favoritos', 'Subelo', 'Mail', 'Perfil']
+  const { selectLinkTo, selected, setSelected } = useNavMovilLinks(buttons)
 
-  const elementos = ['Inicio', 'Favoritos', 'Subelo', 'Mail', 'Perfil']
-
-  const links = {
-    Inicio: '/',
-    Favoritos: `/likes/filterBy/loverId/${user?.id}`,
-    Subelo: '/products',
-    Mail: '/',
-    Perfil: '/profile',
-  }
-  
-
-  const text = {
-    Inicio: 'Inicio',
-    Favoritos: `Favoritos`,
-    Subelo: 'Subelo',
-    Mail: 'mail',
-    Perfil: 'perfil',
-  }
   let fillContent = null
   let linkClass = null
+  let text = null
 
   return (
     <nav className="navbar--movil__container">
       <ul className="navbar--movil__list">
-        {elementos.map((link) => {
-          linkClass = selected === link ? 'selected' : ''
-          fillContent = selected === link ? '#FF6B67' : 'white'
+        {buttons.map((buttonNav) => {
+          linkClass = selected === buttonNav ? 'selected' : ''
+          fillContent = selected === buttonNav ? '#FF6B67' : 'white'
+          text = buttons.find((el) => el === buttonNav)
 
           const render = {
             Inicio: <Home fill={fillContent} />,
@@ -52,18 +36,17 @@ const NavbarMovil = () => {
 
           return (
             <ButtonList
-            key={link}
-            render={() => setSelected(link)}
-            to={user ? links[link]:'login'}
-            classe={`navbar--movil__list__item ${linkClass}`}
-            text={text[link]}
+              key={buttonNav}
+              render={() => setSelected(buttonNav)}
+              to={selectLinkTo(user, buttonNav)}
+              classe={`navbar--movil__list__item ${linkClass}`}
+              text={text}
             >
-              {render[link]}
-              {selected === link ? (
+              {render[buttonNav]}
+              {selected === buttonNav ? (
                 <motion.div className="underline" layoutId="underline" />
               ) : null}
             </ButtonList>
-           
           )
         })}
       </ul>
