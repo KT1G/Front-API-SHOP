@@ -2,7 +2,7 @@
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 1.6rem;
+  gap: 1.8rem;
   margin-right: 2rem;
  
   
@@ -11,10 +11,12 @@
 .navbar__list__item {
   border: 1.3px solid var(--mid--color--red);
   flex: 1;
-  padding: 0.8rem ;
+  padding: 0.1rem ;
   border-radius: 20px;
   cursor: pointer;
 }
+
+
 
 .navbar__list__item a {
   text-decoration: none;
@@ -29,22 +31,57 @@
   transition: background-color 0.5s;
 }
 
+/* NAVBAR LOGGED */
+
+.navbar--logged__list{
+   list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-right: 2rem;
+}
+
+.navbar--logged__list__item{
+   flex: 1;
+   display: flex;
+   justify-content: center;
+  padding: 0.2rem ;
+  border-radius: 20px;
+  cursor: pointer;
+  
+  
+}
+.navbar--logged__list__item a {
+  text-decoration: none;
+  text-align: center;
+  color: var(--hard--color--red);
+  font-size: 21px;
+  padding: 1rem ;
+}
+
+.navbar--logged__list__item a:hover{
+  color: var(--main--color--red);
+  transition: color 0.3s;
+
+}
+
 
 
 @media (max-width: 1000px) {
 
   .navbar__list{
-    flex: 1;
-    gap:1rem;
-    justify-content: end;
+    gap:1rem
+  }
+  .navbar--logged__list{
+    display: none;
   }
   .navbar__list__item {
     max-width: 10rem;
-    padding: 0.5rem ;
+    padding: 0.4rem ;
     text-align: center;
     
   }
-  .navbar--list__item a {
+  .navbar__list__item a {
     padding: 0.5rem 0.5rem
   }
  

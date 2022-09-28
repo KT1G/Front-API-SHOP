@@ -96,7 +96,7 @@ export const getCategoriesService = async () => {
   const response = await fetch(`${apiUrl}products/filterBy/rankingCategories`, {
     method: requestMethods.get,
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Typ': 'application/json',
     },
   })
 

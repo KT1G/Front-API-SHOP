@@ -1,6 +1,7 @@
 import React from 'react'
+import '../styles/error.css'
 
-const ErrorMessage = ({ className, error }) => {
+const ErrorMessage = ({ className = "error" , error }) => {
 
   return <p className={className}>{error}</p>
   
