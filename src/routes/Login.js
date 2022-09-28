@@ -39,15 +39,7 @@ const Login = () => {
           text="Puedes iniciar Sesion abajo"
         />
         <FormLogin onSubmit={onSubmit} loading={loading} />
-        <footer className="form__footer">
-          <ButtonTo
-            text={'Registrate'}
-            to="/register"
-            classe={'form__footer__button'}
-          />
-          <span> | </span>
-          <ButtonTo text={'Inicio'} to="/" classe={'form__footer__button'} />
-        </footer>
+       
 
         {error ? (
           <ErrorMessage className={'form__error__login'} error={error} />
