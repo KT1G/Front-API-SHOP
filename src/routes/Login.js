@@ -6,6 +6,7 @@ import { loginUserService } from '../shared/services'
 import useAuth from '../shared/hooks/useAuth'
 import ErrorMessage from '../components/ErrorMessage'
 import { useNavigate } from 'react-router-dom'
+import ButtonTo from '../components/ButtonTo'
 
 const Login = () => {
   const [response, setResponse] = useState('')
@@ -31,13 +32,28 @@ const Login = () => {
   }
 
   return (
-    <section className="form form__login">
-      <FormTittle title="¡Hola de Nuevo!" text="Puedes iniciar Sesion abajo" />
-      <FormLogin onSubmit={onSubmit} loading={loading} />
-      {error ? (
-        <ErrorMessage className={'form__error__login'} error={error} />
-      ) : null}
-    </section>
+    <div className="main__section">
+      <section className="form form__login">
+        <FormTittle
+          title="¡Hola de Nuevo!"
+          text="Puedes iniciar Sesion abajo"
+        />
+        <FormLogin onSubmit={onSubmit} loading={loading} />
+        <footer className="form__footer">
+          <ButtonTo
+            text={'Registrate'}
+            to="/register"
+            classe={'form__footer__button'}
+          />
+          <span> | </span>
+          <ButtonTo text={'Inicio'} to="/" classe={'form__footer__button'} />
+        </footer>
+
+        {error ? (
+          <ErrorMessage className={'form__error__login'} error={error} />
+        ) : null}
+      </section>
+    </div>
   )
 }
 

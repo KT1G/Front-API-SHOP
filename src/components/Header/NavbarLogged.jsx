@@ -29,7 +29,7 @@ const NavbarLogged = ({ logout }) => {
       </ButtonList>
       <ButtonList
         to={`/`}
-        render={() => logout()}
+        onClick={() => logout()}
         text={'Product'}
         classe={'navbar--logged__list__item'}
       >

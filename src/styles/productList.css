@@ -85,7 +85,7 @@
 
 @media (max-width: 530px) {
   .productList__list {
-    width: 100%;
+    width: 97%;
     grid-template-columns: repeat(2, 1fr);
   }
 }

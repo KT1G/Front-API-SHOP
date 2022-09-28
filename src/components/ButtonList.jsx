@@ -1,20 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../styles/link.css'
-
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
 const ButtonList = ({ to = '/', render, text, classe, children, }) => {
+  
+
   return (
-    <li className={!classe ? 'navbar__list__item' : classe}>
-      <Link
-        className='link'
-        to={to}
-        onClick={!render ? null : render}
-      >
-        {children}
-        {text}
+    <motion.li
+      className={!classe ? 'navbar__list__item' : classe}
+      whileTap={{
+        scale: 0.9,
+      }}
+    >
+      <Link className="link" to={to} onClick={!render ? null : render}>
+        <span>{children}</span>
+        
+        <p>{text}</p>
       </Link>
-    </li>
+    </motion.li>
   )
 }
 

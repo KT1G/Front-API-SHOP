@@ -20,7 +20,7 @@ export const CategoriesList = () => {
   if (error) return (
     <Modal>
       <ErrorMessage error={error} />
-      <ButtonTo to={'login'} text={'login'} classe={'card__button'} />
+      <ButtonTo to={'login'} text={'login'} classe={'modal__button'} />
     </Modal>
   )
   return (

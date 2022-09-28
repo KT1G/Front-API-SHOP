@@ -20,7 +20,7 @@ const Register = () => {
       setloading(true)
       const message = await registerUserService(data)
       setResponse(message)
-        open()
+      open()
     } catch (e) {
       setError(e.message)
     } finally {
@@ -28,15 +28,20 @@ const Register = () => {
     }
   }
   return !response ? (
-    <section className="form">
-      <FormTittle />
-      <FormRegister onSubmit={onSubmit} loading={loading} />
-      {error ? <ErrorMessage className={'form__error'} error={error} /> : null}
-    </section>
+    <div className="main__section">
+      <section className="form">
+        <FormTittle />
+        <FormRegister onSubmit={onSubmit} loading={loading} />
+
+        {error ? (
+          <ErrorMessage className={'form__error'} error={error} />
+        ) : null}
+      </section>
+    </div>
   ) : (
     <Modal response={response}>
       <p className="card__title">{response}</p>
-      <ButtonTo to="/login" text={'login'} classe={'card__button'} />
+      <ButtonTo to="/login" text={'login'} classe={'modal__button'} />
     </Modal>
   )
 }

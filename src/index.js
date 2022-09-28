@@ -12,11 +12,12 @@ import Register from './routes/Register'
 import { AuthProviderComponent } from './shared/context/AuthContext'
 import { ProductsList } from './components/products/ProductsList'
 import Profile from './routes/Profile'
+import Footer from './components/Footer'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <App/>,
     errorElement: <ErrorPage />,
     children: [
       {
