@@ -1,24 +1,19 @@
-import React, { useState } from 'react'
-import '../styles/link.css'
-import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import React from 'react'
+import PlusCircle from './Icons/PlusCircle.js'
 
-const ButtonList = ({ to = '/', render, text, classe, children, }) => {
+const ButtonList = ({ text }) => {
+  const handleClick = () => {
+   
+  }
+
   
-
   return (
-    <motion.li
-      className={!classe ? 'navbar__list__item' : classe}
-      whileTap={{
-        scale: 0.9,
-      }}
-    >
-      <Link className="link" to={to} onClick={!render ? null : render}>
-        <span>{children}</span>
-        
-        <p>{text}</p>
-      </Link>
-    </motion.li>
+    <li className="categoriesSelect__element" onClick={handleClick}>
+      <span className="categoriesSelect__element__image">
+        <PlusCircle />
+      </span>
+      <p className="categoriesSelect__element__text">{text}</p>
+    </li>
   )
 }
 

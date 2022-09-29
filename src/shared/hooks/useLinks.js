@@ -3,8 +3,8 @@ import { useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import useAuth from './useAuth'
 
-const useNavMovilLinks = (elementos) => {
-  const [selected, setSelected] = useState(elementos[0])
+const useNavMovilLinks = () => {
+  const [selected, setSelected] = useState("Inicio")
   const { user } = useAuth()
   let location = useLocation()
   let path = location.pathname

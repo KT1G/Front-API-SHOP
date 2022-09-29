@@ -2,16 +2,31 @@
   min-height: 150px;
   background-color: white;
   padding: 2rem 1rem;
-  max-width:500px ;
+  max-width: 500px;
   gap: 1rem;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
- 
 }
+
+.modal__filter {
+  min-height: 150px;
+  background-color: white;
+  max-width: 700px;
+  position: absolute;
+  left: 20rem;
+  top: 29rem;
+  gap: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 5px 14px 4px rgb(0 0 0 / 30%);
+}
+
 .card__title {
   font-size: 1rem;
   max-width: 100%;
@@ -29,12 +44,12 @@
   border-radius: 10px;
 }
 
-.card__button:hover{
+.card__button:hover {
   background-color: var(--hard--color--red);
   transition: 0.3s;
 }
 
-.modal__button{
+.modal__button {
   background-color: var(--main--color--red);
   font-family: 'Roboto', sans-serif;
   border: none;
@@ -44,5 +59,26 @@
   font-size: 1.4rem;
   padding: 0.4rem 0;
   border-radius: 10px;
+}
 
+@media (max-width: 1000px) {
+  .modal__filter {
+    left: 10rem;
+    top: 26rem;
+  }
+}
+
+@media (max-width: 600px) {
+  
+  .modal__filter {
+    width: 100%;
+    left: 0;
+    top:30;
+    position: inherit;
+   
+  }
+}
+@media (max-width: 400px) {
+  
+  
 }
