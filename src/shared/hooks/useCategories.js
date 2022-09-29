@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getCategoriesService } from "../services";
 
-const useCategories = () => {
+const   useCategories = () => {
     const [ranking, setRanking] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -11,6 +11,7 @@ const useCategories = () => {
             try {
                 setLoading(true);
                 const categories = await getCategoriesService();
+                 setLoading(false)
                 setRanking(categories);
             } catch (error) {
                 setError(error.message);

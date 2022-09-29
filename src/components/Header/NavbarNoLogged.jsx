@@ -1,13 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import ButtonList from '../ButtonList'
+import ButtonListTo from '../ButtonListTo'
 
 
 const NavbarNoLogged = () => {
   return (
     <ul className="navbar__list">
-      <ButtonList to={"register"} text={ "Register"} />
-      <ButtonList to={"login"} text={ "Login"} />
+      <ButtonListTo to={"register"} text={ "Register"} />
+      <ButtonListTo to={"login"} text={ "Login"} />
     </ul>
   )
 }

@@ -6,6 +6,7 @@ import Loading from '../Loading'
 import Modal from '../Modal/Modal'
 import { Products } from './Products'
 import '../../styles/productList.css'
+import HeaderProducts from './HeaderProducts'
 
 
 export const ProductsList = () => {
@@ -28,18 +29,7 @@ export const ProductsList = () => {
     )
   return (
     <section className="productList__container">
-      <header className="producList__header">
-        
-        <nav className="productList__header__nav">
-          <button onClick={() => info.prevPage && navigate(info.prevPage)}>
-            Prev
-          </button>
-          <h1>Products List: {filter}</h1>
-          <button onClick={() => info.nextPage && navigate(info.nextPage)}>
-            Next
-          </button>
-        </nav>
-      </header>
+      <HeaderProducts/>
       <Products products={products} />
       <ButtonTo to="/products" text="Ver mas productos" />
     </section>
