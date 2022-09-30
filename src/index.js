@@ -13,6 +13,7 @@ import { AuthProviderComponent } from './shared/context/AuthContext'
 import { ProductsList } from './components/products/ProductsList'
 import Profile from './routes/Profile'
 import Confirm from './routes/Confirm'
+import AddNewProduct from './routes/AddNewProduct'
 
 const router = createBrowserRouter([
   {
@@ -46,14 +47,14 @@ const router = createBrowserRouter([
       },
       {
         path: 'products',
-        element: <ProductsList />,
+        element: <AddNewProduct/>,
       },
       {
         path: 'likes/filterBy/loverId/:filter',
         element: <ProductsList />,
       },
       {
-        path: '/profile',
+        path: 'profile',
         element: <Profile />,
       },
       {

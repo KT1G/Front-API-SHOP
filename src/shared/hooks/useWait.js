@@ -5,7 +5,7 @@ const useWait = () => {
 
   setTimeout(() => {
     setReady(true)
-  }, 200)
+  }, 500)
 
   return { ready }
 }

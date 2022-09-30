@@ -35,7 +35,7 @@ const FormLogin = ({ onSubmit, loading }) => {
           className="form__group__input"
           type="text"
           {...register('email')}
-          name="email"
+          id="email"
           placeholder=" "
         />
         <label className="form__group__label" htmlFor="email">
@@ -53,7 +53,7 @@ const FormLogin = ({ onSubmit, loading }) => {
           className="form__group__input"
           type={!visible ? 'text' : 'password'}
           {...register('password')}
-          name="password"
+          id="password"
           placeholder=" "
         />
         <label className="form__group__label" htmlFor="password">
@@ -64,7 +64,7 @@ const FormLogin = ({ onSubmit, loading }) => {
       </fieldset>
       {errors.password?.type === 'required' && (
         <p>Este campo es obligatorio </p>
-      )}{' '}
+      )}
       {errors.password?.type === 'min' && (
         <p>La contraseña debe tener almenos 4 digitos </p>
       )}

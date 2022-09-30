@@ -79,7 +79,6 @@ export const getUserMyDataService = async (token) => {
 }
 
 export const getProductsService = async (path) => {
-  console.log(`${apiUrl}${path}`)
   const response = await fetch(`${apiUrl}${path}`, {
     method: requestMethods.get,
     headers: selectHeaders('json'),
@@ -93,6 +92,29 @@ export const getProductsService = async (path) => {
 
   return data
 }
+
+export const getLocationService = async (path) => {
+ 
+  const response = await fetch(`${apiUrl}/products/filterBy/location`, {
+    method: requestMethods.get,
+    headers: selectHeaders('json'),
+  })
+
+  const data = await response.json()
+
+  if (data.status) {
+    throw new Error(data.message)
+  }
+
+  return data
+}
+
+
+
+
+
+
+
 
 export const getCategoriesService = async () => {
   const response = await fetch(`${apiUrl}/products/filterBy/rankingCategories`, {

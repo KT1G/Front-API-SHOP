@@ -1,22 +1,22 @@
 import React from 'react'
 import useCategories from '../../shared/hooks/useCategories'
-import ButtonList from '../ButtonList'
+import ButtonListCategory from '../ButtonListCategory'
 import ButtonTo from '../ButtonTo'
 import Loading from '../Loading'
 import Message from '../Message'
 import '../../styles/categoriesSelectModal.css'
-import useModal from '../../shared/hooks/useModal'
 import Modal from '../../components/Modal/Modal'
 
 const CategoriesSelectModal = ({ close, modalOpen }) => {
   const { ranking, loading, error } = useCategories()
+  console.log(ranking)
 
   if (loading) return <Loading classe={'categoriesSelect__loader'} />
   if (error)
     return (
       <Modal>
         <Message text={error} />
-        <ButtonTo to={'login'} text={'login'} classe={'modal__button'} />
+        <ButtonTo to={'/'} text={'Home'} classe={'modal__button'} />
       </Modal>
     )
   return (
@@ -24,7 +24,7 @@ const CategoriesSelectModal = ({ close, modalOpen }) => {
       <h3 className="categoriesSelect__title">Categorías</h3>
       <ul className="categoriesSelect__list">
         {ranking.map((el) => {
-          return <ButtonList text={el.category} />
+          return <ButtonListCategory text={el.category} />
         })}
       </ul>
       <button onClick={modalOpen && close} className="categoriesSelect__button">Cancelar</button>
@@ -33,3 +33,4 @@ const CategoriesSelectModal = ({ close, modalOpen }) => {
 }
 
 export default CategoriesSelectModal
+

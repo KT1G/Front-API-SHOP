@@ -1,18 +1,13 @@
 import React from 'react'
 import PlusCircle from './Icons/PlusCircle.js'
 
-const ButtonList = ({ text }) => {
-  const handleClick = () => {
-   
-  }
+const ButtonList = ({ text,amount }) => {
+  const handleClick = () => {}
 
-  
   return (
-    <li className="categoriesSelect__element" onClick={handleClick}>
-      <span className="categoriesSelect__element__image">
-        <PlusCircle />
-      </span>
-      <p className="categoriesSelect__element__text">{text}</p>
+    <li className="locationSelect__element" onClick={handleClick}>
+      <span className="locationSelect__element__textAmount">{'('+ amount + ')'}</span>
+      <p className="locationSelect__element__text">{text}</p>
     </li>
   )
 }
