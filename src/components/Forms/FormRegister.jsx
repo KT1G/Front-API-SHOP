@@ -35,7 +35,7 @@ const FormRegister = ({ onSubmit, loading }) => {
           className="form__group__input"
           type="text"
           {...register('name')}
-          name="name"
+          id="name"
           placeholder=" "
         />
         <label className="form__group__label" htmlFor="name">
