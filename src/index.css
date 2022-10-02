@@ -21,6 +21,7 @@ code {
   --hard--color--red: #6f051a;
   --mid--color--red: #d76078;
   --soft--color--red: #f7dfe4;
+  --like--color--red:#FD6C67;
 
   --main--color--gray: #afaaabb3;
   --soft--color--gray: #ECEFF1;
@@ -30,6 +31,7 @@ code {
   --hard--color--blue:#253238;
   --main--color--blue: rgb(77, 130, 255);
   --soft--color--blue: #607D8B;
+  --light--color--blue:#c1cbd0bc;
 
   --category--color--orange:#FF9801;
   --category--color--salmon:#FF6B67;

@@ -16,7 +16,7 @@
 .header__logo {
   margin-left: 2rem;
   flex: 1;
-  width: 20rem;
+  width: 17rem;
   transition: transform 1s;
 }
 .header__logo:hover {
@@ -37,6 +37,12 @@
 .header__input:hover {
   border: 2px solid var(--hard--color--red);
   transition: 0.3s;
+}
+
+@media (max-width:1500px){
+  .header__logo {
+    width: 12rem;
+  }
 }
 
 @media (max-width: 1000px) {

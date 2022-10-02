@@ -2,6 +2,8 @@ import useAuth from "../../shared/hooks/useAuth"
 import { ButtonWithoutLike } from "../ButtonWithoutLike"
 import { ButtonWithLike } from "../ButtonWithLike"
 import { deleteLikeService, postLikeService } from "../../shared/services"
+import '../../styles/like.css'
+
 
 export const Like = ({ productId, liked, setLiked }) => {
     console.log(productId);

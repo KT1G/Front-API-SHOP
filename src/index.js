@@ -14,7 +14,8 @@ import { ProductsList } from './components/products/ProductsList'
 import Profile from './routes/Profile'
 import Confirm from './routes/Confirm'
 import AddNewProduct from './routes/AddNewProduct'
-import { Product } from './components/products/Product'
+
+import { ProductDetail } from './routes/ProductDetail.js'
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'products/filterBy/id/:filter',
-        element: <Product />,
+        element: <ProductDetail />,
       },
       {
         path: 'products/filterBy/name/:name',

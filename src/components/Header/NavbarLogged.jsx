@@ -28,7 +28,7 @@ const NavbarLogged = ({ logout }) => {
       </ButtonListTo>
       <ButtonListTo        to={`/`}
         onClick={() => logout()}
-        text={'Product'}
+        text={'Súbelo'}
         classe={'navbar--logged__list__item'}
       >
         <PlusCircle />
