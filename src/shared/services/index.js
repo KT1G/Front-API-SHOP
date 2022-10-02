@@ -94,7 +94,6 @@ export const getProductsService = async (path) => {
 }
 
 export const getLocationService = async (path) => {
- 
   const response = await fetch(`${apiUrl}/products/filterBy/location`, {
     method: requestMethods.get,
     headers: selectHeaders('json'),
@@ -109,12 +108,67 @@ export const getLocationService = async (path) => {
   return data
 }
 
+export const getUserService = async (id) => {
+  const response = await fetch(`${apiUrl}${endpoints.userEnpoint}/filterBy/id/${id}`, {
+    method: requestMethods.get,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+  
+  const data = await response.json()
+  
 
+  return data
+}
 
+export const getLikeProductIdService = async (product_id, lover_id) => {
+  const response = await fetch(`${apiUrl}${endpoints.likeEndpoint}/filterBy/productId/${product_id}?lover_id=4`, {
+    method: requestMethods.get,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+  const data = await response.json()
 
+  //Si no hay response isLiked = false y si hay response isLiked = true
+  let isLiked
+  data.object ? isLiked = true : isLiked = false
 
+  return isLiked
+}
 
+export const postLikeService = async (productId, token) => {
+  console.log(productId);
+  const response = await fetch(`${apiUrl}${endpoints.likeEndpoint}/${productId}`, {
+    method: requestMethods.post,
+    headers: selectHeaders('auth', token),
+  })
 
+  const data = await response.json()
+
+  if (!response.ok) {
+    throw new Error(data.message)
+  }
+
+  return data.data
+}
+
+export const deleteLikeService = async (productId, token) => {
+  console.log(productId);
+  const response = await fetch(`${apiUrl}${endpoints.likeEndpoint}/delete/byProductId/${productId}`, {
+    method: requestMethods.delete,
+    headers: selectHeaders('auth', token),
+  })
+
+  const data = await response.json()
+
+  if (!response.ok) {
+    throw new Error(data.message)
+  }
+
+  return data.data
+}
 
 export const getCategoriesService = async () => {
   const response = await fetch(`${apiUrl}/products/filterBy/rankingCategories`, {

@@ -27,27 +27,27 @@ const PrecioSelectModal = ({ close, modalOpen }) => {
       <h3 className="precioSelect__title">¿Cuanto quieres pagar?</h3>
       <section className="precioSelect__container">
         <fieldset className="precioSelect__element">
-          <label className="precioSelect__label" htmlFor="min">
+          <label className="precioSelect__label" htmlFor="minPrice">
             Desde
           </label>
           <input
             className="precioSelect__input"
             type="text"
-            {...register('min')}
+            {...register('minPrice')}
             defaultValue="0"
-            id="min"
+            id="minPrice"
           />
         </fieldset>
         <fieldset className="precioSelect__element">
-          <label className="precioSelect__label" htmlFor="max">
+          <label className="precioSelect__label" htmlFor="maxPrice">
             Hasta
           </label>
           <input
             className="precioSelect__input"
             type="text"
-            {...register('max')}
+            {...register('maxPrice')}
             defaultValue="1000"
-            id="max"
+            id="maxPrice"
           />
         </fieldset>
       </section>

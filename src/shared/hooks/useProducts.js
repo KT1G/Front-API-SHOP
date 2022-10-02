@@ -7,15 +7,14 @@ const useProducts = () => {
   const [info, setInfo] = useState({})
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
-
   const location = useLocation()
-   
-
+  console.log(location);
+  const path = `${location.pathname}${location.search}`
   useEffect(() => {
     const loadProducts = async () => {
       try {
         setLoading(true)
-        const allInfoProducts = await getProductsService(location.pathname)
+        const allInfoProducts = await getProductsService(path)
         const pagination = allInfoProducts.info
         const listProducts = allInfoProducts.object
         //actualizar el estado de products con listProducts
@@ -30,7 +29,7 @@ const useProducts = () => {
     }
 
     loadProducts()
-  }, [location])
+  }, [path])
 
   return { products, info, loading, error }
 }
