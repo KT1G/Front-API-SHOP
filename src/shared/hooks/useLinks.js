@@ -22,7 +22,7 @@ const useNavMovilLinks = () => {
   const links = {
     Inicio: '/',
     Favoritos: `/likes/filterBy/loverId/${user?.id}`,
-    Subelo: '/products',
+    Subelo: '/products/add',
     Mail: '/',
     Perfil: '/profile',
   }

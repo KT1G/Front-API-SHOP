@@ -1,8 +1,12 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
+import { ButtonSearchFilter } from "../ButtonSearchFilter";
 
 export const Search = () => {
     const [text, setText] = useState('')
+    const [filter, setFilter] = useState('name')
+    //TODO: Añadir un boton que despliegue un menu con las opciones de busqueda name, category y location
+    //TODO: Actualizar el valor de filter en funcion de la opcion seleccionada con setFilter
     const navigate = useNavigate();
 
     const handleChange = (event) => {
@@ -11,13 +15,14 @@ export const Search = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
         console.log(text)
-        navigate(`/products/filterBy/search/${text}`)
+        navigate(`/products/filterBy/${filter}/${text}`)
         setText('')
     }
 
     return (
         <form className="header__form" onSubmit={handleSubmit}>
-            <input className="header__input" type="text" placeholder="Search" onChange={handleChange} value={text} />
+            <input className="header__input" type="text" placeholder={`Search by ${filter}`} onChange={handleChange} value={text} />
+            <ButtonSearchFilter setFilter={setFilter} />
         </form>
     )
 }

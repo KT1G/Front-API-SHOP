@@ -1,8 +1,17 @@
 import React from 'react'
+import { useSearchParams } from 'react-router-dom'
 import PlusCircle from './Icons/PlusCircle.js'
 
-const ButtonList = ({ text,amount }) => {
-  const handleClick = () => {}
+const ButtonList = ({ text, amount }) => {
+  const [params, setParams] = useSearchParams()
+  const handleClick = () => {
+    if (params.toString() === '') {
+      setParams({ location: text })
+    } else {
+      params.set('location', text)
+      setParams(params)
+    }
+  }
 
   return (
     <li className="locationSelect__element" onClick={handleClick}>
