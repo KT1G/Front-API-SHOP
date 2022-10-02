@@ -67,6 +67,15 @@
 @media (max-width: 1070px) {
 
   .productList__container{
+    padding-top: 12rem;
+  }
+  .productList__list {
+    width: min(95%, 48rem);
+  }
+}
+@media (max-width: 1000px) {
+
+  .productList__container{
     padding-top: 8rem;
   }
   .productList__list {

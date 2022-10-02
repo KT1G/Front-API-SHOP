@@ -1,7 +1,9 @@
+import Heart from "./Icons/Heart"
+
 export const ButtonWithoutLike = ({onClick}) => {
     return (
-        <button onClick={onClick}>
-            Without Like
-        </button>
-    )
+        <button className='buttonNolike__button' onClick={onClick}>
+            <Heart fill={'white'} />
+        </button>)
+    
 }

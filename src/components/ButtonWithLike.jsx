@@ -1,7 +1,11 @@
-export const ButtonWithLike = ({onClick}) => {
+import Heart from '../components/Icons/Heart'
+
+
+export const ButtonWithLike = ({ onClick }) => {
+    
     return (
-        <button onClick= {onClick}>
-            With Like
-        </button>
+      <button className="buttonlike__button" onClick={onClick}>
+        <Heart fill={'#FD6C67'} />
+      </button>
     )
 }
