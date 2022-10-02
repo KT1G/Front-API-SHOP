@@ -14,7 +14,7 @@ export const useProduct = () => {
     console.log(location);
 
     //recuperar el user del authContext
-    const { user } = useAuth()  //todo: No me llegan datos del usuario
+    const { user } = useAuth()  //TODO: No me llegan datos del usuario
     console.log(user);
 
     useEffect(() => {
@@ -24,10 +24,14 @@ export const useProduct = () => {
                 const data = await getProductsService(location.pathname)
                 const product = data.object[0]
                 const ownerUser = await getUserService(product.user_id)
-                const liked = await getLikeProductIdService(product.id, product.user_id)
+                
                 setProduct(product)
                 setOwnerUser(ownerUser)
-                setLiked(liked)
+                //si hay user comprobar si el producto tiene like de ese usuario
+                if (user) {
+                    const like = await getLikeProductIdService(product.id, user.id)
+                    setLiked(like)
+                }
             } catch (error) {
                 setError(error.message)
             } finally {
@@ -36,7 +40,7 @@ export const useProduct = () => {
         }
 
         loadProductAndOwnerUser()
-    }, [location])
+    }, [location, user, liked])
 
     return { product, ownerUser, liked, setLiked, loading, error }
 }

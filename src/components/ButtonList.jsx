@@ -8,7 +8,12 @@ const ButtonList = ({ text, amount }) => {
     if (params.toString() === '') {
       setParams({ location: text })
     } else {
-      params.set('location', text)
+      //si ya esta en la url se borra
+      if (params.get('location') === text) {
+        params.delete('location')
+      } else {
+        params.set('location', text)
+      }
       setParams(params)
     }
   }

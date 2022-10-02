@@ -5,11 +5,15 @@ import PlusCircle from './Icons/PlusCircle.js'
 const ButtonListCategory = ({ text }) => {
   const [params, setParams] = useSearchParams()
   const handleClick = () => {
-
     if (params.toString() === '') {
       setParams({ category: text })
     } else {
-      params.set('category', text)
+      //si la categoria es igual a la que esta en la url se borra
+      if (params.get('category') === text) {
+        params.delete('category')
+      } else {
+        params.set('category', text)
+      }
       setParams(params)
     }
   }
