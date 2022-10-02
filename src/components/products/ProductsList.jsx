@@ -7,6 +7,7 @@ import Modal from '../Modal/Modal'
 import { Products } from './Products'
 import '../../styles/productList.css'
 import HeaderProducts from './HeaderProducts'
+import { Pagination } from './Pagination'
 
 
 export const ProductsList = () => {
@@ -31,7 +32,7 @@ export const ProductsList = () => {
     <section className="productList__container">
       <HeaderProducts/>
       <Products products={products} />
-      <ButtonTo to="/products" text="Ver mas productos" />
+      <Pagination info={info} />
     </section>
   )
 }

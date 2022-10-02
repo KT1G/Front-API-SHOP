@@ -8,6 +8,7 @@ const endpoints = {
   accuntsEnpoint: '/accounts',
   authEnpoint: '/auth',
   userEnpoint: '/users',
+  likeEndpoint: '/likes',
 }
 const selectHeaders = (value, token) => {
   const contentHeaders = {
@@ -123,7 +124,7 @@ export const getUserService = async (id) => {
 }
 
 export const getLikeProductIdService = async (product_id, lover_id) => {
-  const response = await fetch(`${apiUrl}${endpoints.likeEndpoint}/filterBy/productId/${product_id}?lover_id=4`, {
+  const response = await fetch(`${apiUrl}${endpoints.likeEndpoint}/filterBy/productId/${product_id}?lover_id=${lover_id}`, {
     method: requestMethods.get,
     headers: {
       'Content-Type': 'application/json',
