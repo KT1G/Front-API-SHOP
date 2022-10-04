@@ -16,7 +16,7 @@ export const AuthProviderComponent = ({ children }) => {
       try {
         const data = await getUserMyDataService( token )
         setUser(data)
-        console.log(data)
+  
       } catch (e) {
         logout()
       }

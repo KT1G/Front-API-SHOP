@@ -1,64 +1,43 @@
-import React, { useState } from 'react'
+
 import { useForm } from 'react-hook-form'
 import { useSearchParams } from 'react-router-dom'
 import '../../styles/formPrice.css'
 
 const PrecioSelectModal = ({ close, modalOpen }) => {
   const { register, handleSubmit } = useForm()
-  const [error, setError] = useState(null)
-  const [loading, setloading] = useState(false)
   const [params, setParams] = useSearchParams()
+ 
 
-
-  const onSubmit = async (data) => {
-    try {
-      /* useEffect(() => {
-        const loadFilterProductsByPrice = async () => {
-          try {
-            setLoading(true);
-            const minPrice = data.minPrice;
-            const maxPrice = data.maxPrice;
-            if (params.toString() === '') {
-              if(minPrice !==)
-               */
-      console.log(data)
-      const minPrice = data.minPrice
-      const maxPrice = data.maxPrice
-      if (params.toString() === '') {
-        if (minPrice !== '' && maxPrice !== '') {
-          setParams({
-            minPrice: minPrice,
-            maxPrice: maxPrice,
-          })
-        } else if (minPrice !== '') {
-          setParams({ minPrice: minPrice })
-        } else if (maxPrice !== '') {
-          setParams({ maxPrice: maxPrice })
-        }
-      } else {
-        if (minPrice === '' && maxPrice === '') {
-          params.delete('minPrice')
-          params.delete('maxPrice')
-        } else if (minPrice !== '' && maxPrice !== '') {
-          params.set("minPrice", minPrice)
-          params.set("maxPrice", maxPrice)
-        } else if (minPrice !== '') {
-          params.set("minPrice", minPrice)
-          params.delete("maxPrice")
-        } else if (maxPrice !== '') {
-          params.set("maxPrice", maxPrice)
-          params.delete("minPrice")
-        }
-        setParams(params)
+  const onSubmit =  (data) => {
+    console.log(data)
+    const minPrice = data.minPrice
+    const maxPrice = data.maxPrice
+    if (params.toString() === '') {
+      if (minPrice !== '' && maxPrice !== '') {
+        setParams({
+          minPrice: minPrice,
+          maxPrice: maxPrice,
+        })
+      } else if (minPrice !== '') {
+        setParams({ minPrice: minPrice })
+      } else if (maxPrice !== '') {
+        setParams({ maxPrice: maxPrice })
       }
-      setloading(true)
-      setError('')
-      //aqui hay que hacer que la informacion que llega en data que se ve en la consola se mande a la query y se haga una llamada al back
-      setloading(false)
-    } catch (e) {
-      setError(e.message)
-    } finally {
-      setloading(false)
+    } else {
+      if (minPrice === '' && maxPrice === '') {
+        params.delete('minPrice')
+        params.delete('maxPrice')
+      } else if (minPrice !== '' && maxPrice !== '') {
+        params.set('minPrice', minPrice)
+        params.set('maxPrice', maxPrice)
+      } else if (minPrice !== '') {
+        params.set('minPrice', minPrice)
+        params.delete('maxPrice')
+      } else if (maxPrice !== '') {
+        params.set('maxPrice', maxPrice)
+        params.delete('minPrice')
+      }
+      setParams(params)
     }
   }
 
@@ -72,10 +51,12 @@ const PrecioSelectModal = ({ close, modalOpen }) => {
           </label>
           <input
             className="precioSelect__input"
-            type="text"
-            {...register('minPrice')}
+            type="number"
+            {...register('minPrice', {
+              validate: (value) => value > 0,
+            })}
             placeholder="0"
-            defaultValue={''}
+            defaultValue='1'
             id="minPrice"
           />
         </fieldset>
@@ -85,10 +66,12 @@ const PrecioSelectModal = ({ close, modalOpen }) => {
           </label>
           <input
             className="precioSelect__input"
-            type="text"
-            {...register('maxPrice')}
-            placeholder="1000"
-            defaultValue={''}
+            type="number"
+            {...register('maxPrice', {
+              validate: (value) => value > 0 && value <= 3500,
+            })}
+            placeholder="3500"
+            defaultValue={'3500'}
             id="maxPrice"
           />
         </fieldset>

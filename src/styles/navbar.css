@@ -132,7 +132,7 @@
 
 /* NAVAR HOVERS */
 
-@media (min-width: 1000px) {
+@media (min-width: 1001px) {
   .navbar--movil__container {
     display: none;
   }
