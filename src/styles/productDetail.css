@@ -141,17 +141,7 @@
   color: var(--soft--color--blue);
 }
 
-.pruductInfo__info__button {
-  border-radius: 20px;
-  cursor: pointer;
-  padding: 0.9rem 0.7rem;
-  margin-right: 2rem;
-  font-size: 1.3rem;
-  color: white;
-  background-color: var(--mid--color--red);
-  border: 2px solid var(--main--color--red);
-  transition: 0.3s;
-}
+
 
 .pruductInfo__info__button:hover {
   background-color: var(--main--color--red);

@@ -35,6 +35,14 @@
   text-indent: 10px;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+
 .precioSelect__button__container {
   display: flex;
   gap: 0.5rem;

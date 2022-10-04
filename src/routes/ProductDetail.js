@@ -23,7 +23,7 @@ export const ProductDetail = () => {
     <div className='page__container'>
       <section className="product__container">
         <UserInfo
-          ownerUser={ownerUser}
+          UserInfo={ownerUser}
           productId={product.id}
           liked={liked}
           setLiked={setLiked}

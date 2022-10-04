@@ -42,8 +42,30 @@ const modalEffects = () => {
       opacity: 0,
     },
   }
+  const sliceMid = {
+    hidden: {
+      y: '100vh',
+      opacity: 0,
+    },
+    visible: {
+  
+      y: '0',
+      opacity: 1,
+      transition: {
+        duration: 0.1,
+        type: 'spring',
+        damping: 37,
+        stiffness: 500,
+      },
+    },
+    exit: {
+     
+      opacity: 0,
+    },
+  }
 
-  return { dropIn, sliceIn }
+
+  return { dropIn, sliceIn, sliceMid }
 }
 
 export default modalEffects

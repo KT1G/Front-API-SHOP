@@ -1,6 +1,52 @@
 import { Link } from 'react-router-dom'
+import modalEffects from '../../shared/helpers/modalEffects'
+import useModal from '../../shared/hooks/useModal'
+import Button from '../Button'
+import ButtonCancelAccept from '../ButtonCancelAccept'
+import Message from '../Message'
+import Modal from '../Modal/Modal'
+import useAuth from '../../shared/hooks/useAuth'
+import { useState } from 'react'
+import { getBuyProductsService } from '../../shared/services'
+
+import ButtonTo from '../ButtonTo'
+import Loading from '../Loading'
 
 export const ProductInfo = ({ product }) => {
+  const { close, modalOpen, open } = useModal()
+  const { user, token } = useAuth()
+
+  const { sliceMid } = modalEffects()
+  const [response, setResponse] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+
+  const text = 'Se le enviará un correo con la solicitud de compra al vendedor.'
+
+  const handleClick = async () => {
+    let path = `/products/${product.id}/buy`
+    try {
+      setLoading(true)
+      setError('')
+      const data = await getBuyProductsService(path, token)
+      setLoading(false)
+      setResponse(data.message)
+    } catch (e) {
+      setError(e.message)
+    } finally {
+      setLoading(false)
+    }
+  }
+  if (loading) return <Loading classe="loader__products" />
+ 
+  if (error)
+    return (
+      <Modal>
+        <Message text={error} />
+        <ButtonTo text="Home" classe="modal__button" />
+      </Modal>
+    )
+
   return (
     <article className="productInfo__container">
       <header className="productInfo__image__container">
@@ -17,7 +63,7 @@ export const ProductInfo = ({ product }) => {
           </h2>
           <h3 className="productInfo__info__subTitle">{product.name}</h3>
         </div>
-        <button className="pruductInfo__info__button">Comprar</button>
+        {user && <Button handleClick={() => open()} text={'Comprar'} />}
       </section>
       <footer className="productInfo__footer">
         <p className="productInfo__info__text"> {product.caption}</p>
@@ -33,6 +79,34 @@ export const ProductInfo = ({ product }) => {
           </Link>
         </button>
       </footer>
+      {modalOpen && (
+        <Modal
+          classe={'modal__buy'}
+          classeBack={'white'}
+          variant={sliceMid}
+          handleClose={close}
+        >
+          {!response ? (
+            <>
+              <Message text={text} />
+              <ButtonCancelAccept
+                modalOpen={modalOpen}
+                close={close}
+                handleClick={handleClick}
+              />
+            </>
+          ) : (
+            <>
+              <Message text={response} />
+              <Button
+                handleClick={close}
+                classe={'button__cancel'}
+                text={'close'}
+              />
+            </>
+          )}
+        </Modal>
+      )}
     </article>
   )
 }

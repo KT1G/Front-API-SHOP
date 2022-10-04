@@ -16,11 +16,12 @@ import Confirm from './routes/Confirm'
 import AddNewProduct from './routes/AddNewProduct'
 
 import { ProductDetail } from './routes/ProductDetail.js'
+import { ConfirmPurcharse } from './routes/ConfirmPurcharse'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App/>,
+    element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
@@ -57,11 +58,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'products',
-        element: <ProductsList/>,
+        element: <ProductsList />,
       },
       {
         path: 'products/add',
-        element: <AddNewProduct/>,
+        element: <AddNewProduct />,
       },
       {
         path: 'likes/filterBy/loverId/:filter',
@@ -73,12 +74,14 @@ const router = createBrowserRouter([
       },
       {
         path: 'accounts/confirm/:id',
-        element: <Confirm/>
-      }
+        element: <Confirm />,
+      },
+      {
+        path: 'products/:id/confirm',
+        element: <ConfirmPurcharse/>,
+      },
     ],
-      
   },
-  
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'))

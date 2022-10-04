@@ -8,6 +8,7 @@ import { Products } from './Products'
 import '../../styles/productList.css'
 import HeaderProducts from './HeaderProducts'
 import { Pagination } from './Pagination'
+import '../../styles/pagination.css'
 
 
 export const ProductsList = () => {

@@ -13,7 +13,7 @@ import ButtonFilter from '../ButtonFilter'
 
 const HeaderProducts = () => {
   const filters = ['Categorias', 'Precio', 'Localidad']
-  const [precio,setPrecio] = useState([])
+  
   
   const [selected, setSelected] = useState(false)
   const { close, modalOpen, open } = useModal()
@@ -29,7 +29,7 @@ const HeaderProducts = () => {
     const renders = {
       Categorias: <CategoriesSelectModal close={close} modalOpen={modalOpen} />,
       Precio: <PrecioSelectModal close={close} modalOpen={modalOpen} />,
-      Localidad: <LocationSelectModal close={close} modalOpen={modalOpen} setPrecio={setPrecio} />,
+      Localidad: <LocationSelectModal close={close} modalOpen={modalOpen}  />,
     }
 
     return renders[selected]
