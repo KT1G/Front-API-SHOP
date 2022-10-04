@@ -9,8 +9,9 @@ import '../styles/productDetail.css'
 
 export const ProductDetail = () => {
   //Recuperara el resultado de la busqueda
-  const { product, ownerUser, liked, setLiked, loading, error } = useProduct()
-  console.log(ownerUser)
+  const { product, ownerUser, loading, error } = useProduct()
+  //Guardar el owner user en el localstarage
+  localStorage.setItem('ownerUser', JSON.stringify(ownerUser))
   if (loading) return <Loading classe="loader__products" />
   if (error)
     return (
@@ -23,10 +24,8 @@ export const ProductDetail = () => {
     <div className='page__container'>
       <section className="product__container">
         <UserInfo
-          UserInfo={ownerUser}
+          userInfo={ownerUser}
           productId={product.id}
-          liked={liked}
-          setLiked={setLiked}
         />
         <ProductInfo product={product} />
       </section>

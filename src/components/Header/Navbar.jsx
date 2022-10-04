@@ -8,7 +8,6 @@ const Navbar = () => {
 
   const { user, logout } = useAuth()
   
-  
   return (
     user ? <NavbarLogged logout={logout} /> : <NavbarNoLogged/>
   )

@@ -1,23 +1,19 @@
-import React from 'react'
-import ButtonTo from '../components/ButtonTo'
+import { UserInfo } from '../components/products/UserInfo'
+import { Inventory } from '../components/profile/Inventory'
 
 import useAuth from '../shared/hooks/useAuth'
 import '../styles/profile.css'
 
 const Profile = () => {
-  const { user, logout } = useAuth()
+  const { user} = useAuth()
   return (
-    <section className='profile__container'>
-      {user ? (
-        <ButtonTo
-          handleclick={logout}
-          text={'Logout'}
-          classe={'profile__button'}
-        />
-      ) : (
-        null
-      )}
-    </section>
+    <div className='page__container'>
+      <section className='profile__container'>
+        <UserInfo userInfo={user}/>
+        <Inventory id={user.id} />
+      </section>
+    </div>
+    
   )
 }
 

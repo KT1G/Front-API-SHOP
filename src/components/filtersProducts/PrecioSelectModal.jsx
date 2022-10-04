@@ -8,8 +8,8 @@ const PrecioSelectModal = ({ close, modalOpen }) => {
   const [params, setParams] = useSearchParams()
  
 
-  const onSubmit =  (data) => {
-    console.log(data)
+
+  const onSubmit = (data) => {
     const minPrice = data.minPrice
     const maxPrice = data.maxPrice
     if (params.toString() === '') {
@@ -28,14 +28,14 @@ const PrecioSelectModal = ({ close, modalOpen }) => {
         params.delete('minPrice')
         params.delete('maxPrice')
       } else if (minPrice !== '' && maxPrice !== '') {
-        params.set('minPrice', minPrice)
-        params.set('maxPrice', maxPrice)
+        params.set("minPrice", minPrice)
+        params.set("maxPrice", maxPrice)
       } else if (minPrice !== '') {
-        params.set('minPrice', minPrice)
-        params.delete('maxPrice')
+        params.set("minPrice", minPrice)
+        params.delete("maxPrice")
       } else if (maxPrice !== '') {
-        params.set('maxPrice', maxPrice)
-        params.delete('minPrice')
+        params.set("maxPrice", maxPrice)
+        params.delete("minPrice")
       }
       setParams(params)
     }
@@ -53,10 +53,10 @@ const PrecioSelectModal = ({ close, modalOpen }) => {
             className="precioSelect__input"
             type="number"
             {...register('minPrice', {
-              validate: (value) => value > 0,
+              validate: (value) => value > 0 && value <= 3500
             })}
-            placeholder="0"
-            defaultValue='1'
+            placeholder="1"
+            defaultValue=""
             id="minPrice"
           />
         </fieldset>
@@ -68,10 +68,10 @@ const PrecioSelectModal = ({ close, modalOpen }) => {
             className="precioSelect__input"
             type="number"
             {...register('maxPrice', {
-              validate: (value) => value > 0 && value <= 3500,
+              validate: (value) => value > 0 && value <= 3500
             })}
             placeholder="3500"
-            defaultValue={'3500'}
+            defaultValue=""
             id="maxPrice"
           />
         </fieldset>
