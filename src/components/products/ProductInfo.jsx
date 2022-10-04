@@ -11,6 +11,7 @@ import { getBuyProductsService } from '../../shared/services'
 
 import ButtonTo from '../ButtonTo'
 import Loading from '../Loading'
+import { ButtonListActions } from '../ButtonListActions'
 
 export const ProductInfo = ({ product }) => {
   const { close, modalOpen, open } = useModal()
@@ -63,21 +64,28 @@ export const ProductInfo = ({ product }) => {
           </h2>
           <h3 className="productInfo__info__subTitle">{product.name}</h3>
         </div>
-        {user && <Button handleClick={() => open()} text={'Comprar'} />}
+        <ButtonListActions open={open} user={user} product={product} />
       </section>
       <footer className="productInfo__footer">
         <p className="productInfo__info__text"> {product.caption}</p>
-        <button className="productInfo__footer__button">
-          <Link to={`/products/filterBy/category/${product.category}`}>
-            {product.category}
-          </Link>
-        </button>
-        <span> / </span>
-        <button className="productInfo__footer__button">
-          <Link to={`/products/filterBy/name/${product.name}`}>
-            {product.name}
-          </Link>
-        </button>
+        <ul className="productInfo__info__list">
+          <li>
+            <button className="productInfo__footer__button">
+              <Link to={`/products/filterBy/category/${product.category}`}>
+                {product.category}
+              </Link>
+            </button>
+            <span> / </span>
+            <button className="productInfo__footer__button">
+              <Link to={`/products/filterBy/name/${product.name}`}>
+                {product.name}
+              </Link>
+            </button>
+          </li>
+          <li>
+            <p>{`❤️ ${product.likes}`}</p>
+          </li>
+        </ul>
       </footer>
       {modalOpen && (
         <Modal

@@ -15,14 +15,14 @@ export const Search = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
         console.log(text)
-        navigate(`/products/filterBy/${filter}/${text}`)
+        navigate(`/products/filterBy/name/${text}`)
         setText('')
     }
 
     return (
         <form className="header__form" onSubmit={handleSubmit}>
-            <input className="header__input" type="text" placeholder={`Search by ${filter}`} onChange={handleChange} value={text} />
-            <ButtonSearchFilter setFilter={setFilter} />
+            <input className="header__input" type="text" placeholder={`Search by name`} onChange={handleChange} value={text} />
+            {/* <ButtonSearchFilter setFilter={setFilter} /> */}
         </form>
     )
 }

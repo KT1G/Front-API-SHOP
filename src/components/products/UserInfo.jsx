@@ -1,41 +1,44 @@
+import { Link} from 'react-router-dom'
 import useAuth from '../../shared/hooks/useAuth'
+import ButtonTo from '../ButtonTo'
 import { Like } from './Like'
 
-export const UserInfo = ({ userInfo, productId, liked, setLiked }) => {
- 
+export const UserInfo = ({ userInfo, productId}) => {
 
-  const { user } = useAuth()
+  const { user, logout } = useAuth()  //Para saber si el usuario esta logueado y renderizar el boton de like
 
   return (
     <header className="userInfo__container">
       <nav className="userInfo__nav">
         <ul className="userInfo__list">
-          <li className="userInfo__element">
-            <section className="userInfo__element__container">
-              <div className="userInfo__avatar__background">
-                {userInfo.avatar ? (
-                  <img
-                    className="userInfo__element__avatar"
-                    src={`${process.env.REACT_APP_BACKEND_PUBLIC}users/${userInfo.user_id}/${userInfo.avatar}`}
-                    alt={userInfo.avatar}
-                  />
-                ) : (
-                  <img
-                    className="userInfo__element__avatar"
-                    src={`${process.env.REACT_APP_BACKEND_PUBLIC}/users/default/defaultAvatar.png`}
-                    alt="Default Avatar"
-                  />
-                )}
-              </div>
-            </section>
-            <section className="userInfo__element__container">
-              <p className="userInfo__element__text--name">{userInfo.name}</p>
+          <Link to={`/profile/info/${userInfo.id}`}>
+            <li className="userInfo__element" >
+              <section className="userInfo__element__container">
+                <div className="userInfo__avatar__background">
+                  {userInfo.avatar ? (
+                    <img
+                      className="userInfo__element__avatar"
+                      src={`${process.env.REACT_APP_BACKEND_PUBLIC}/users/${userInfo.id}/${userInfo.avatar}`}
+                      alt={userInfo.avatar}
+                    />
+                  ) : (
+                    <img
+                      className="userInfo__element__avatar"
+                      src={`${process.env.REACT_APP_BACKEND_PUBLIC}/users/default/defaultAvatar.png`}
+                      alt="Default Avatar"
+                    />
+                  )}
+                </div>
+              </section>
+              <section className="userInfo__element__container">
+                <p className="userInfo__element__text--name">{userInfo.name}</p>
 
-              <p className="userInfo__element__text--products">
-                {userInfo.products} <span>Productos</span>
-              </p>
-            </section>
-          </li>
+                <p className="userInfo__element__text--products">
+                  {userInfo.products} <span>Productos</span>
+                </p>
+              </section>
+            </li>
+          </Link>
           <li className="userInfo__element">
             <section className="userInfo__element__container">
               <p className="userInfo__element__text">{userInfo.score}</p>
@@ -44,8 +47,15 @@ export const UserInfo = ({ userInfo, productId, liked, setLiked }) => {
               </p>
             </section>
           </li>
-          {user && (
-            <Like productId={productId} liked={liked} setLiked={setLiked} />
+          {user && user.id!==userInfo.id && (
+            <Like productId={productId} userId={user.id} />
+          )}
+          {user && user.id === userInfo.id && (
+            <ButtonTo
+            handleclick={logout}
+            text={'Logout'}
+            classe={'profile__button'}
+            />
           )}
         </ul>
       </nav>

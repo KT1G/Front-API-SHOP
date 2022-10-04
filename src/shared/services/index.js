@@ -1,11 +1,12 @@
 const apiUrl = process.env.REACT_APP_BACKEND
 
-const requestMethods = { post: 'POST', get: 'GET', put: 'PUT' }
+const requestMethods = { post: 'POST', get: 'GET', put: 'PUT', delete: 'DELETE' }
 
 const endpoints = {
   accuntsEnpoint: '/accounts',
   authEnpoint: '/auth',
   userEnpoint: '/users',
+  productsEnpoint: '/products',
   likeEndpoint: '/likes',
   locationEndpoint: '/products/filterBy/location',
 }
@@ -125,6 +126,22 @@ export const getProductsService = async (path) => {
   return data
 }
 
+export const deleteProductService = async (productId, token) => {
+  console.log(productId);
+  const response = await fetch(`${apiUrl}${endpoints.productsEnpoint}/delete/byId/${productId}`, {
+    method: requestMethods.delete,
+    headers: selectHeaders('auth', token),
+  })
+
+  const data = await response.json()
+  console.log(data);
+  if (!response.ok) {
+    throw new Error(data.message)
+  }
+
+  return data.data
+}
+
 export const getLocationService = async () => {
   const response = await fetch(`${apiUrl}${endpoints.locationEndpoint}`, {
     method: requestMethods.get,
@@ -141,31 +158,21 @@ export const getLocationService = async () => {
 }
 
 export const getUserService = async (id) => {
-  const response = await fetch(
-    `${apiUrl}${endpoints.userEnpoint}/filterBy/id/${id}`,
-    {
-      method: requestMethods.get,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }
-  )
-
+  const response = await fetch(`${apiUrl}${endpoints.userEnpoint}/filterBy/id/${id}`, {
+    method: requestMethods.get,
+    headers: selectHeaders('json'),
+  })
+  
   const data = await response.json()
 
   return data
 }
 
 export const getLikeProductIdService = async (product_id, lover_id) => {
-  const response = await fetch(
-    `${apiUrl}${endpoints.likeEndpoint}/filterBy/productId/${product_id}?lover_id=${lover_id}`,
-    {
-      method: requestMethods.get,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }
-  )
+  const response = await fetch(`${apiUrl}${endpoints.likeEndpoint}/filterBy/productId/${product_id}?lover_id=${lover_id}`, {
+    method: requestMethods.get,
+    headers: selectHeaders('json'),
+  })
   const data = await response.json()
 
   //Si no hay response isLiked = false y si hay response isLiked = true
@@ -176,17 +183,13 @@ export const getLikeProductIdService = async (product_id, lover_id) => {
 }
 
 export const postLikeService = async (productId, token) => {
-  console.log(productId)
-  const response = await fetch(
-    `${apiUrl}${endpoints.likeEndpoint}/${productId}`,
-    {
-      method: requestMethods.post,
-      headers: selectHeaders('auth', token),
-    }
-  )
+  const response = await fetch(`${apiUrl}${endpoints.likeEndpoint}/${productId}`, {
+    method: requestMethods.post,
+    headers: selectHeaders('auth', token),
+  })
 
   const data = await response.json()
-
+  console.log(data);
   if (!response.ok) {
     throw new Error(data.message)
   }
@@ -205,7 +208,7 @@ export const deleteLikeService = async (productId, token) => {
   )
 
   const data = await response.json()
-
+  console.log(data);
   if (!response.ok) {
     throw new Error(data.message)
   }

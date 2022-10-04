@@ -17,6 +17,8 @@ import AddNewProduct from './routes/AddNewProduct'
 
 import { ProductDetail } from './routes/ProductDetail.js'
 import { ConfirmPurcharse } from './routes/ConfirmPurcharse'
+import { ProfileInfo } from './components/profile/ProfileInfo'
+import { OwnerProviderComponent } from './shared/context/OwnerContext'
 
 const router = createBrowserRouter([
   {
@@ -41,6 +43,10 @@ const router = createBrowserRouter([
         element: <ProductDetail />,
       },
       {
+        path: 'products/filterBy/userId/:filter',
+        element: <ProductsList />,
+      },
+      {
         path: 'products/filterBy/name/:name',
         element: <ProductsList />,
       },
@@ -57,6 +63,10 @@ const router = createBrowserRouter([
         element: <ProductsList />,
       },
       {
+        path: 'products/filterBy/bought',
+        element: <ProductsList />,
+      },
+      {
         path: 'products',
         element: <ProductsList />,
       },
@@ -67,6 +77,10 @@ const router = createBrowserRouter([
       {
         path: 'likes/filterBy/loverId/:filter',
         element: <ProductsList />,
+      },
+      {
+        path: 'profile/info/:id',
+        element: <ProfileInfo />,
       },
       {
         path: 'profile',
@@ -87,9 +101,11 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <AuthProviderComponent>
-      <RouterProvider router={router} />
-    </AuthProviderComponent>
+    <OwnerProviderComponent>
+      <AuthProviderComponent>
+        <RouterProvider router={router} />
+      </AuthProviderComponent>
+    </OwnerProviderComponent>
   </React.StrictMode>
 )
 
