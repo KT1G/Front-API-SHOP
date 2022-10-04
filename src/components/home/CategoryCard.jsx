@@ -9,9 +9,9 @@ export const CategoryCard = ({ category, total, classe }) => {
         to={`/products/filterBy/category/${category}`}
       >
         <div className={classe}>
-             <img
+            <img
             className="categories__element__image"
-            src={`${process.env.REACT_APP_BACKEND_PUBLIC}/categories/${category}.png`}
+            src={`${process.env.REACT_APP_BACKEND_IMG_DEFAULT}/categories/${category}.png`}
             alt={category}
           />   
         </div>

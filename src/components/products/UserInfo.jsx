@@ -24,7 +24,7 @@ export const UserInfo = ({ userInfo, productId}) => {
                   ) : (
                     <img
                       className="userInfo__element__avatar"
-                      src={`${process.env.REACT_APP_BACKEND_PUBLIC}/users/default/defaultAvatar.png`}
+                      src={`${process.env.REACT_APP_BACKEND_IMG_DEFAULT}/default/defaultAvatar.png`}
                       alt="Default Avatar"
                     />
                   )}
