@@ -19,6 +19,7 @@ import { ProductDetail } from './routes/ProductDetail.js'
 import { ConfirmPurcharse } from './routes/ConfirmPurcharse'
 import { ProfileInfo } from './components/profile/ProfileInfo'
 import { OwnerProviderComponent } from './shared/context/OwnerContext'
+import ScoreVote from './routes/ScoreVote'
 
 const router = createBrowserRouter([
   {
@@ -92,7 +93,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'products/:id/confirm',
-        element: <ConfirmPurcharse/>,
+        element: <ConfirmPurcharse />,
+      },
+      {
+        path: 'users/score/:id',
+        element: <ScoreVote />,
       },
     ],
   },

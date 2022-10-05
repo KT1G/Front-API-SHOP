@@ -1,5 +1,5 @@
 
-import ButtonTo from '../components/ButtonTo'
+import ButtonTo from '../components/Buttons/ButtonTo';
 import Message from '../components/Message'
 import Loading from '../components/Loading'
 import Modal from '../components/Modal/Modal'

@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import useProducts from '../../shared/hooks/useProducts'
-import ButtonTo from '../ButtonTo'
+import ButtonTo from '../Buttons/ButtonTo'
 import Message from '../Message'
 import Loading from '../Loading'
 import Modal from '../Modal/Modal'

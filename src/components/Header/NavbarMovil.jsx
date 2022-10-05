@@ -6,7 +6,7 @@ import Mail from '../Icons/Mail'
 import MeMovil from '../Icons/MeMovil'
 import PlusCircleMovil from '../Icons/PlusCircleMovil'
 import useNavMovilLinks from '../../shared/hooks/useLinks'
-import ButtonListTo from '../ButtonListTo'
+import ButtonListTo from '../Buttons/ButtonListTo'
 
 const NavbarMovil = () => {
 

@@ -1,10 +1,9 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
-import { ButtonSearchFilter } from "../ButtonSearchFilter";
+
 
 export const Search = () => {
     const [text, setText] = useState('')
-    const [filter, setFilter] = useState('name')
     //TODO: Añadir un boton que despliegue un menu con las opciones de busqueda name, category y location
     //TODO: Actualizar el valor de filter en funcion de la opcion seleccionada con setFilter
     const navigate = useNavigate();

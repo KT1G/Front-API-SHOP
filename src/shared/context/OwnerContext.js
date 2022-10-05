@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useLocation } from 'react-router-dom'
 
 export const OwnerContext = createContext();
 

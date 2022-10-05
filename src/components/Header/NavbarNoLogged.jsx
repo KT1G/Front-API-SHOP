@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonListTo from '../ButtonListTo'
+import ButtonListTo from '../Buttons/ButtonListTo'
 
 
 const NavbarNoLogged = () => {

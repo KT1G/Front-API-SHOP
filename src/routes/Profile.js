@@ -3,10 +3,11 @@ import { Inventory } from '../components/profile/Inventory'
 
 import useAuth from '../shared/hooks/useAuth'
 import '../styles/profile.css'
+import {memo} from 'react'
 
 const Profile = () => {
-  const { user} = useAuth()
-  return (
+  const {user} = useAuth()
+ if(user) return (
     <div className='page__container'>
       <section className='profile__container'>
         <UserInfo userInfo={user}/>

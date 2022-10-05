@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSearchParams } from 'react-router-dom'
-import PlusCircle from './Icons/PlusCircle.js'
+import PlusCircle from '../Icons/PlusCircle.js'
 
 const ButtonListCategory = ({ text }) => {
   const [params, setParams] = useSearchParams()

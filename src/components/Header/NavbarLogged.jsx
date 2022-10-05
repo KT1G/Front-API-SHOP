@@ -1,7 +1,7 @@
 import React from 'react'
 
 import useAuth from '../../shared/hooks/useAuth'
-import ButtonListTo from '../ButtonListTo'
+import ButtonListTo from '../Buttons/ButtonListTo'
 
 import Heart from '../Icons/Heart'
 import MeSvg from '../Icons/Me'
@@ -14,19 +14,22 @@ const NavbarLogged = ({ logout }) => {
 
   return (
     <ul className="navbar--logged__list">
-      <ButtonListTo        to={`/likes/filterBy/loverId/${user.id}`}
+      <ButtonListTo
+        to={`/likes/filterBy/loverId/${user.id}`}
         text={'Favoritos'}
         classe={'navbar--logged__list__item'}
       >
         <Heart />
       </ButtonListTo>
-      <ButtonListTo        to={`/profile`}
+      <ButtonListTo
+        to={`/profile`}
         text={'Tú'}
         classe={'navbar--logged__list__item'}
       >
         <MeSvg />
       </ButtonListTo>
-      <ButtonListTo        to={`/`}
+      <ButtonListTo
+        to={`products/add`}
         onClick={() => logout()}
         text={'Súbelo'}
         classe={'navbar--logged__list__item'}

@@ -1,5 +1,5 @@
 import React from 'react'
-import ChevronDown from '../components/Icons/ChevronDown'
+import ChevronDown from '../Icons/ChevronDown'
 
 
 

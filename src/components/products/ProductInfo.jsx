@@ -1,17 +1,17 @@
 import { Link } from 'react-router-dom'
 import modalEffects from '../../shared/helpers/modalEffects'
 import useModal from '../../shared/hooks/useModal'
-import Button from '../Button'
-import ButtonCancelAccept from '../ButtonCancelAccept'
+import Button from '../../components/Buttons/Button'
+import ButtonCancelAccept from '../Buttons/ButtonCancelAccept'
 import Message from '../Message'
 import Modal from '../Modal/Modal'
 import useAuth from '../../shared/hooks/useAuth'
 import { useState } from 'react'
 import { getBuyProductsService } from '../../shared/services'
 
-import ButtonTo from '../ButtonTo'
+import ButtonTo from '../Buttons/ButtonTo'
 import Loading from '../Loading'
-import { ButtonListActions } from '../ButtonListActions'
+import { ButtonListActions } from '../Buttons/ButtonListActions'
 
 export const ProductInfo = ({ product }) => {
   const { close, modalOpen, open } = useModal()

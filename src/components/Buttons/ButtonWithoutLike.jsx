@@ -1,4 +1,4 @@
-import Heart from "./Icons/Heart"
+import Heart from '../Icons/Heart'
 
 export const ButtonWithoutLike = ({onClick}) => {
     return (
