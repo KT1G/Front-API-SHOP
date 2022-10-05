@@ -4,12 +4,12 @@ import { useLocation } from 'react-router-dom'
 import useAuth from '../../shared/hooks/useAuth'
 import { confirmBuyProdutService } from '../../shared/services'
 import '../../styles/formBuyProduct.css'
-import Button from '../Button'
+import Button from '../../components/Buttons/Button'
 import Loading from '../Loading'
 import Message from '../Message'
 import Modal from '../Modal/Modal'
 import useModal  from '../../shared/hooks/useModal'
-import ButtonTo from '../ButtonTo'
+import ButtonTo from '../Buttons/ButtonTo'
 
 const FormBuyProduct = () => {
   const { register, handleSubmit } = useForm()

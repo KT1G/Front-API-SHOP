@@ -1,4 +1,4 @@
-import Heart from '../components/Icons/Heart'
+import Heart from '../Icons/Heart'
 
 
 export const ButtonWithLike = ({ onClick }) => {

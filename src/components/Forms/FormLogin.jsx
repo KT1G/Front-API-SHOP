@@ -11,7 +11,7 @@ import FooterForm from './FooterForm'
 const schema = yup
   .object({
     email:yup.string().email().required(),
-    password:yup.string().required().min(4).max(15) ,
+    password:yup.string().required().min(7).max(15) ,
   })
   .required()
 

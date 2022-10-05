@@ -1,5 +1,5 @@
-import useAuth from "../shared/hooks/useAuth"
-import { deleteProductService } from "../shared/services"
+import useAuth from "../../shared/hooks/useAuth"
+import { deleteProductService } from "../../shared/services"
 
 export const ButtonDelete = ({ productId}) => {
     const {token} = useAuth()

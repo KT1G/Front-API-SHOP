@@ -1,18 +1,18 @@
 import React from 'react'
 import Button from './Button'
-import '../styles/button.css'
+import '../../styles/button.css'
 
 
-const ButtonCancelAccept = ({modalOpen,close,handleClick}) => {
+const ButtonCancelAccept = ({modalOpen,close,handleClick,}) => {
    
   return (
     <div className="button__container">
       <Button
         classe={'button__cancel'}
-        text={'Cancelar'}
+        text={'Cerrar'}
         handleClick={modalOpen && close}
       />
-      <Button text={'Aceptar'} handleClick={handleClick} />
+      <Button  text={'Aceptar'} handleClick={handleClick} />
     </div>
   )
 }

@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { getUserMyDataService, registerUserService } from '../shared/services'
+import {  registerUserService } from '../shared/services'
 import FormTittle from '../components/Forms/FormTittle'
 import FormRegister from '../components/Forms/FormRegister'
 import Message from '../components/Message'
 import Modal from '../components/Modal/Modal'
 import useModal from '../shared/hooks/useModal'
-import ButtonTo from '../components/ButtonTo'
+import ButtonTo from '../components/Buttons/ButtonTo'
 
 const Register = () => {
   const [error, setError] = useState('')

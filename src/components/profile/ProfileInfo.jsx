@@ -9,6 +9,6 @@ export const ProfileInfo = () => {
 
     
     return (
-        <div className="page__container">{ownerUser.name}</div>
+        <div className="page__container">{ownerUser?.name}</div>
     );
 }

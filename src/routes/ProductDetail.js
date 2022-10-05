@@ -1,5 +1,5 @@
 import { useProduct } from '../shared/hooks/useProduct'
-import ButtonTo from '../components/ButtonTo'
+import ButtonTo from '../components/Buttons/ButtonTo'
 import Loading from '../components/Loading'
 import Message from '../components/Message'
 import Modal from '../components/Modal/Modal'

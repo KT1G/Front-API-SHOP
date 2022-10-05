@@ -11,7 +11,7 @@ const schema = yup
   .object({
     email: yup.string().email().required(),
     name: yup.string().required(),
-    password: yup.string().required().min(4).max(15),
+    password: yup.string().required().min(6).max(15),
   })
   .required()
 

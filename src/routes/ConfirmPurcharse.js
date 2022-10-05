@@ -1,9 +1,9 @@
-import { useLocation, useSearchParams } from 'react-router-dom'
+
 import useConfirmBuy from '../shared/hooks/useConfirmBuy'
 import '../styles/confirmPurcharse.css'
 import useAuth from '../shared/hooks/useAuth'
 import Modal from '../components/Modal/Modal'
-import ButtonTo from '../components/ButtonTo'
+import ButtonTo from '../components/Buttons/ButtonTo'
 import Message from '../components/Message'
 import FormBuyProduct from '../components/Forms/FormBuyProduct'
 import Loading from '../components/Loading'

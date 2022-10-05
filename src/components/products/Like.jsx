@@ -1,9 +1,10 @@
-import { ButtonWithoutLike } from "../ButtonWithoutLike"
-import { ButtonWithLike } from "../ButtonWithLike"
+
 import { deleteLikeService, postLikeService } from "../../shared/services"
 import '../../styles/like.css'
 import { useLike } from "../../shared/hooks/useLiked"
 import useAuth from "../../shared/hooks/useAuth"
+import { ButtonWithLike } from "../Buttons/ButtonWithLike"
+import { ButtonWithoutLike } from "../Buttons/ButtonWithoutLike"
 
 
 export const Like = ({ productId, userId }) => {

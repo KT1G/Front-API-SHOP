@@ -9,6 +9,7 @@ const endpoints = {
   productsEnpoint: '/products',
   likeEndpoint: '/likes',
   locationEndpoint: '/products/filterBy/location',
+  addProductEndpoint: '/products/add',
 }
 const selectHeaders = (value, token) => {
   const contentHeaders = {
@@ -75,6 +76,25 @@ export const getUserMyDataService = async (token) => {
 
   return data.data
 }
+
+
+
+export const AddNewProductService = async (body, token) => { 
+  const response = await fetch(`${apiUrl}${endpoints.addProductEndpoint}`, {
+    method: requestMethods.post,
+    body,
+    headers: selectHeaders('auth', token),
+  })
+  const data = await response.json()
+  console.log(data)
+
+  if (!response.ok) {
+    throw new Error(data.message)
+  }
+
+  return data
+}
+
 
 export const getBuyProductsService = async (path, token) => {
   const response = await fetch(`${apiUrl}${path}`, {

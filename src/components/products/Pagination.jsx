@@ -1,4 +1,4 @@
-import ButtonTo from '../ButtonTo'
+import ButtonTo from '../Buttons/ButtonTo'
 
 export const Pagination = ({ info }) => {
   return (

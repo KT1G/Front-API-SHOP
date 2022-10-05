@@ -9,7 +9,7 @@ import modalEffects from '../../shared/helpers/modalEffects'
 import CategoriesSelectModal from '../filtersProducts/CategoriesSelectModal'
 import PrecioSelectModal from '../filtersProducts/PrecioSelectModal'
 import LocationSelectModal from '../filtersProducts/LocationSelectModal'
-import ButtonFilter from '../ButtonFilter'
+import ButtonFilter from '../../components/Buttons/ButtonFilter'
 
 const HeaderProducts = () => {
   const filters = ['Categorias', 'Precio', 'Localidad']

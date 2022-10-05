@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonTo from '../ButtonTo'
+import ButtonTo from '../Buttons/ButtonTo'
 
 const FooterForm = () => {
   return (

@@ -1,9 +1,12 @@
 import { Link} from 'react-router-dom'
 import useAuth from '../../shared/hooks/useAuth'
-import ButtonTo from '../ButtonTo'
+import ButtonTo from '../Buttons/ButtonTo'
 import { Like } from './Like'
 
-export const UserInfo = ({ userInfo, productId}) => {
+
+
+export const UserInfo = ({ userInfo, productId }) => {
+  
 
   const { user, logout } = useAuth()  //Para saber si el usuario esta logueado y renderizar el boton de like
 
@@ -24,7 +27,7 @@ export const UserInfo = ({ userInfo, productId}) => {
                   ) : (
                     <img
                       className="userInfo__element__avatar"
-                      src={`${process.env.REACT_APP_BACKEND_IMG_DEFAULT}/default/defaultAvatar.png`}
+                      src={`${process.env.REACT_APP_BACKEND_IMG_DEFAULT}/default/defaultAvatar-2.jpg`}
                       alt="Default Avatar"
                     />
                   )}
@@ -41,7 +44,7 @@ export const UserInfo = ({ userInfo, productId}) => {
           </Link>
           <li className="userInfo__element">
             <section className="userInfo__element__container">
-              <p className="userInfo__element__text">{userInfo.score}</p>
+              <p className="userInfo__element__text">{userInfo?.score}</p>
               <p className="userInfo__element__text--valoraciones">
                 {userInfo.votes} <span>Valoraciones</span>
               </p>
@@ -54,7 +57,7 @@ export const UserInfo = ({ userInfo, productId}) => {
             <ButtonTo
             handleclick={logout}
             text={'Logout'}
-            classe={'profile__button'}
+            classe={'button__logout'}
             />
           )}
         </ul>

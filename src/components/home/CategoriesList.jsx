@@ -4,7 +4,7 @@ import '../../styles/categories.css'
 import Loading from '../Loading'
 import Modal from '../Modal/Modal'
 import Message from '../Message'
-import ButtonTo from '../ButtonTo'
+import ButtonTo from '../Buttons/ButtonTo'
 
 export const CategoriesList = () => {
   const { ranking, loading, error } = useCategories()
@@ -25,9 +25,9 @@ export const CategoriesList = () => {
     )
   return (
     <section className="categories__container">
-      <h2 className="categories__title"> Mejores Categorias</h2>
+      <h2 className="categories__title"> Mejores Categorías</h2>
       <p className="categories__text">
-        Mas de {totalProducts} productos en nuestras mejores categorias
+        Más de {totalProducts} productos en nuestras mejores categorías
       </p>
       <Categories ranking={ranking} />
       <ButtonTo to="products" text={'¡Ver todos los Productos!'} />
