@@ -11,11 +11,7 @@ export const ButtonListActions = ({ open, user, product }) => {
             )}
             {user && (user.id === product.user_id || user.status === 'admin') && (
                 <>
-                    <li>
-                        <button className="pruductInfo__info__button">
-                        Editar
-                        </button>
-                    </li>
+                    {/* <ButtonEdit productId={product.id} /> */}
                     <ButtonDelete productId={product.id} />
                 </>
             )}

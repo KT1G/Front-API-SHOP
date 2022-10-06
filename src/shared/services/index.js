@@ -6,6 +6,9 @@ const endpoints = {
   accuntsEnpoint: '/accounts',
   authEnpoint: '/auth',
   userEnpoint: '/users',
+  updateUserInfoEnpoint: '/users/update/info',
+  updateUserAvatarEnpoint: '/users/update/avatar',
+  updateUserStatusEnpoint: '/users/update/status',
   productsEnpoint: '/products',
   likeEndpoint: '/likes',
   locationEndpoint: '/products/filterBy/location',
@@ -26,6 +29,8 @@ const selectHeaders = (value, token) => {
       return contentHeaders.json
     case 'auth':
       return contentHeaders.auth
+    case 'form-data':
+      return contentHeaders.formData
     default:
   }
   return contentHeaders
@@ -62,6 +67,48 @@ export const loginUserService = async (body) => {
 
   return data.data
 }
+
+export const updateUserInfoService = async (body, token) => {
+  console.log("Body desde la funcion",body);
+  /*  const headers = selectHeaders('json')
+  if (token) {
+    headers.append('auth', token)
+  } */
+  const response = await fetch(`${apiUrl}${endpoints.updateUserInfoEnpoint}`, {
+    method: requestMethods.put,
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(body),
+  })
+
+  const data = await response.json()
+  console.log("esto es data", data);
+  if (!response.ok) {
+    throw new Error(data.message)
+  }
+
+  return data
+}
+
+export const updateUserAvatarService = async (body, token) => {
+  console.log(body);
+  const response = await fetch(`${apiUrl}${endpoints.updateUserAvatarEnpoint}`, {
+    method: requestMethods.put,
+    body: body,
+    headers: selectHeaders('auth', token),
+  })
+  const data = await response.json()
+  console.log("Esto es desde el fetch", data)
+
+  if (!response.ok) {
+    throw new Error(data.message)
+  }
+
+  return data
+}
+
 
 export const getUserMyDataService = async (token) => {
   const response = await fetch(`${apiUrl}${endpoints.userEnpoint}`, {

@@ -8,6 +8,7 @@ export const OwnerProviderComponent = ({ children }) => {
     const [ownerUser, setOwnerUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const { id } = useParams();
 
     useEffect(() => {
         const getOwner = async () => {
@@ -22,7 +23,7 @@ export const OwnerProviderComponent = ({ children }) => {
             }
         };
         getOwner();
-    }, []);
+    }, [id]);
     
     return (
         <OwnerContext.Provider value={{ ownerUser, loading, error }}>
