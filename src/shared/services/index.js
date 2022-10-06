@@ -10,6 +10,7 @@ const endpoints = {
   likeEndpoint: '/likes',
   locationEndpoint: '/products/filterBy/location',
   addProductEndpoint: '/products/add',
+  setVoteEndpoint:'/users/score/',
 }
 const selectHeaders = (value, token) => {
   const contentHeaders = {
@@ -187,6 +188,26 @@ export const getUserService = async (id) => {
 
   return data
 }
+
+export const setVoteService = async (path, token) => {
+  const response = await fetch(
+    `${apiUrl}${endpoints.setVoteEndpoint}${path}`,
+    {
+      method: requestMethods.put,
+      headers: selectHeaders('auth', token),
+    }
+  )
+
+  const data = await response.json()
+
+  if (!response.ok) {
+    throw new Error(data.message)
+  }
+
+  return data
+ }
+
+
 
 export const getLikeProductIdService = async (product_id, lover_id) => {
   const response = await fetch(`${apiUrl}${endpoints.likeEndpoint}/filterBy/productId/${product_id}?lover_id=${lover_id}`, {

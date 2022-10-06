@@ -101,3 +101,11 @@
     font-size: auto;
   }
 }
+
+@media (max-width: 350px){
+  .locationSelect__list{
+    height: 40vh;
+    overflow-y: auto;
+    
+  }
+}

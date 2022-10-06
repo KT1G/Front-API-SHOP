@@ -10,6 +10,7 @@ import '../styles/productDetail.css'
 export const ProductDetail = () => {
   //Recuperara el resultado de la busqueda
   const { product, ownerUser, loading, error } = useProduct()
+
   //Guardar el owner user en el localstarage
   localStorage.setItem('ownerUser', JSON.stringify(ownerUser))
   if (loading) return <Loading classe="loader__products" />
@@ -25,7 +26,8 @@ export const ProductDetail = () => {
       <section className="product__container">
         <UserInfo
           userInfo={ownerUser}
-          productId={product.id}
+          productId={product?.id}
+          productStatus={product?.status}
         />
         <ProductInfo product={product} />
       </section>

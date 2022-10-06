@@ -48,7 +48,7 @@ const FormBuyProduct = () => {
       setError('') 
       const data = await confirmBuyProdutService(dataQuery)
       setResponse(data.message)
-      close()
+      open()
       setloading(false)
     } catch (e) {
       open()

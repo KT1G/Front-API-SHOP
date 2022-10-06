@@ -11,6 +11,8 @@ import { Pagination } from './Pagination'
 import '../../styles/pagination.css'
 
 
+
+
 export const ProductsList = () => {
   //Recuperara el resultado de la busqueda
   const { products, info, loading, error } = useProducts()
