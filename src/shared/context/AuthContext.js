@@ -14,7 +14,9 @@ export const AuthProviderComponent = ({ children }) => {
   useEffect(() => {
     const getUserData = async () => {
       try {
-        const data = await getUserMyDataService( token )
+        const data = await getUserMyDataService(token)
+        // Guardar data en localStorage
+        localStorage.setItem('logUser', JSON.stringify(data))
         setUser(data)
       } catch (e) {
         logout()

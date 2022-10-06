@@ -1,19 +1,20 @@
 import React from 'react'
-import { useForm } from 'react-hook-form'
+import { useForm, useWatch } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import getCategoriasLocations from '../../shared/helpers/getCategoriasLocations'
 import '../../styles/formAdd.css'
 import Upload from '../Icons/Upload'
+import Loading from '../Loading'
 
 const { locations, categories } = getCategoriasLocations()
 
 const schema = yup.object().shape({
-  name: yup.string().required().max(40),
+  name: yup.string().required().max(60),
   category: yup.string().required(),
   price: yup.number().required().max(3500),
   location: yup.string().required(),
-  caption: yup.string().required().max(150),
+  caption: yup.string().required().max(255),
   image: yup.mixed().test('fileSize', 'Debes subir una foto', (value) => {
     return value && value.length
   }),
@@ -23,11 +24,16 @@ const FormAddProduct = ({ onSubmit, loading }) => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   })
   console.log(errors)
+  const nameProduct = watch('name')
+  const nameProductLength = nameProduct ? nameProduct.length : 0
+  const captionProduct = watch('caption')
+  const captionProductLength = captionProduct ? captionProduct.length : 0
 
   return (
     <form className="formAdd__container" onSubmit={handleSubmit(onSubmit)}>
@@ -37,7 +43,7 @@ const FormAddProduct = ({ onSubmit, loading }) => {
           <label className="formAdd__group__label" htmlFor="name">
             ¿Qué estás vendiendo?
           </label>
-          <span>0/40</span>
+          <span>{nameProductLength}/60</span>
         </div>
         <input
           className=" formAdd__group__input"
@@ -121,7 +127,7 @@ const FormAddProduct = ({ onSubmit, loading }) => {
           <label className="formAdd__group__label" htmlFor="textArea">
             Descripción
           </label>
-          <span>0/150</span>
+          <span>{captionProductLength}/255</span>
         </div>
         <textarea
           className="formAdd__group__textarea"
@@ -157,9 +163,12 @@ const FormAddProduct = ({ onSubmit, loading }) => {
 
       </fieldset>
 
-      <button className="button__main" type="submit">
-        Aceptar
-      </button>
+      
+
+      {/* input boton */}
+        {!loading ? <button className="button__main" type="submit">
+          Aceptar
+        </button>: <Loading/>}
     </form>
   )
 }

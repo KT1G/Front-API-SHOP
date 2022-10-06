@@ -27,7 +27,7 @@ export const UserInfo = ({ userInfo, productId , productStatus }) => {
                   ) : (
                     <img
                       className="userInfo__element__avatar"
-                      src={`${process.env.REACT_APP_BACKEND_IMG_DEFAULT}/default/defaultAvatar-2.jpg`}
+                      src={`${process.env.REACT_APP_BACKEND_IMG_DEFAULT}/default/defaultAvatar.png`}
                       alt="Default Avatar"
                     />
                   )}
@@ -44,7 +44,7 @@ export const UserInfo = ({ userInfo, productId , productStatus }) => {
           </Link>
           <li className="userInfo__element">
             <section className="userInfo__element__container">
-              <p className="userInfo__element__text">{userInfo?.score}</p>
+              <p className="userInfo__element__text">{userInfo?.score} ⭐</p>
               <p className="userInfo__element__text--valoraciones">
                 {userInfo.votes} <span>Valoraciones</span>
               </p>
