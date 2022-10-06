@@ -7,11 +7,11 @@ import ButtonTo from '../Buttons/ButtonTo'
 const Card = ({ section, element }) => {
   const [includeUser, setIncludeUser] = useState(false)
   const location = useLocation().search
-  
+  console.log(element)
+
   useEffect(() => {
     location.includes('user') ? setIncludeUser(true) : setIncludeUser(false)
-
-   }, [element.id, location])
+  }, [element.id, location])
 
   //img src añadir http://localhost:9000/uploads/products/4/
   console.log('esto es el producto', element.status)
@@ -25,9 +25,15 @@ const Card = ({ section, element }) => {
             alt={element.name}
           />
 
-          {element.status === 'bought' && !includeUser && (
-            <ButtonTo to={`users/score/${element.id}` } classe={'productList__button'} text={'Valorar'} />
-          )}
+          {element.status === 'bought' &&
+            !includeUser &&
+            element.valoration === null && (
+              <ButtonTo
+                to={`/users/score/${element.id}`}
+                classe={'productList__button'}
+                text={'Valorar'}
+              />
+            )}
         </div>
         <h3 className="productList__element__title">{element.price + '€'}</h3>
         <h4 className="productList__element__subTitle">{`${element.name} | ${element.category} | ${element.location}`}</h4>

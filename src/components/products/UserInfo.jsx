@@ -5,7 +5,7 @@ import { Like } from './Like'
 
 
 
-export const UserInfo = ({ userInfo, productId }) => {
+export const UserInfo = ({ userInfo, productId , productStatus }) => {
   
 
   const { user, logout } = useAuth()  //Para saber si el usuario esta logueado y renderizar el boton de like
@@ -50,7 +50,7 @@ export const UserInfo = ({ userInfo, productId }) => {
               </p>
             </section>
           </li>
-          {user && user.id!==userInfo.id && (
+          {user && user.id!==userInfo.id && productStatus  !== 'bought' && (
             <Like productId={productId} userId={user.id} />
           )}
           {user && user.id === userInfo.id && (

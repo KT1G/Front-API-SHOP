@@ -3,7 +3,7 @@ import { Inventory } from '../components/profile/Inventory'
 
 import useAuth from '../shared/hooks/useAuth'
 import '../styles/profile.css'
-import {memo} from 'react'
+
 
 const Profile = () => {
   const {user} = useAuth()

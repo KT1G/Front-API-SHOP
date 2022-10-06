@@ -151,16 +151,9 @@ const FormAddProduct = ({ onSubmit, loading }) => {
           <p>Sube una imagen !</p>
         </label>
 
-
-
-
         {errors.image && (
           <p className="formAdd__error">{errors.image.message}</p>
-
         )}
-
-
-
 
       </fieldset>
 

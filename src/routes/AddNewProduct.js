@@ -41,7 +41,6 @@ const AddNewProduct = () => {
       setError('')
       const data = await AddNewProductService(formData, token)
       setResponse(data.message)
-      console.log(data.message)
       open()
       console.log(data)
     } catch (error) {
