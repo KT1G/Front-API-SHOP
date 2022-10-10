@@ -39,8 +39,7 @@ const FormUpdateUserAvatar = ({ onSubmit, loading, user }) => {
             </fieldset>
             
             {/* input boton */}
-            <input className="button form__button" type="submit" value={'Avatar'} />
-            {/* {!loading ? <input className="button form__button" type="submit" value={'Avatar'} />: <Loading/>} */}
+             {!loading ? <input className="button form__button" type="submit" value={'Enviar!'} />: <Loading/>} 
         </form>
     )
 }
