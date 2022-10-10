@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom'
 const Login = () => {
   const [error, setError] = useState(null)
   const [loading, setloading] = useState(false)
-  const { login } = useAuth()
+  const { login,logout } = useAuth()
   const navigate = useNavigate()
 
   const onSubmit = async (data) => {
@@ -24,6 +24,7 @@ const Login = () => {
       if (login) navigate('/')
       setloading(false)
     } catch (e) {
+      logout()
       setError(e.message)
     } finally {
       setloading(false)

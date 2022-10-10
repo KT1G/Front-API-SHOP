@@ -87,7 +87,7 @@ const FormRegister = ({ onSubmit, loading }) => {
       </fieldset>
         {errors.password?.type === 'required' && (
           <p>Este campo es obligatorio </p>
-        )}{' '}
+        )}
         {errors.password?.type === 'min' && (
           <p>La contraseña debe tener almenos 4 digitos </p>
         )}

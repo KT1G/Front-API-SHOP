@@ -8,52 +8,57 @@ import Message from '../components/Message'
 import Modal from '../components/Modal/Modal'
 import useAuth from '../shared/hooks/useAuth'
 import useModal from '../shared/hooks/useModal'
+import useWait from '../shared/hooks/useWait'
 import { AddNewProductService } from '../shared/services'
 
 const AddNewProduct = () => {
   const { user, token } = useAuth()
   const [error, setError] = useState(null)
+  const {ready} = useWait()
   const [response, setResponse] = useState(null)
   const [loading, setLoading] = useState(false)
   const { modalOpen, close, open } = useModal()
-  console.log('esto es el usuario', user.id)
-  const path = `/products/filterBy/userId/${user.id}`
-
-  if (!user)
-    return (
-      <Modal>
+  let path = null
+  
+  if (user) path = `/products/filterBy/userId/${user.id}`
+  
+  if (!user && ready)
+  return (
+    <Modal>
         <Message text={'Debes logearte primer'} />
         <ButtonTo to={'/login'} text="Login" classe="modal__button" />
       </Modal>
     )
-  const onSubmit = async (data) => {
+  
+   
+  const onSubmit = async (data, user) => {
     console.log(data)
     const formData = new FormData()
-    formData.append('name', data.name)
-    formData.append('caption', data.caption)
-    formData.append('category', data.category)
-    formData.append('price', data.price)
-    formData.append('location', data.location)
-    formData.append('image', data.image[0])
-
-    try {
-      setLoading(true)
-      setError('')
-      const data = await AddNewProductService(formData, token)
-      setResponse(data.message)
-      open()
-      console.log(data)
-    } catch (error) {
+      formData.append('name', data.name)
+      formData.append('caption', data.caption)
+      formData.append('category', data.category)
+      formData.append('price', data.price)
+      formData.append('location', data.location)
+      formData.append('image', data.image[0])
+      
+      try {
+        console.log('esto es el path',path)
+        setLoading(true)
+        setError('')
+        const data = await AddNewProductService(formData, token)
+        setResponse(data.message)
+        open()
+        console.log(data)
+      } catch (error) {
       setError(error.message)
       open()
     } finally {
       setLoading(false)
     }
   }
-  if (loading) return <Loading classe="loader__products" />
-
+  
   return (
-    <section className="page__container">
+    user && <section className="page__container">
       <FormAddProduct onSubmit={onSubmit} />
       {error && modalOpen && (
         <Modal>
@@ -62,7 +67,7 @@ const AddNewProduct = () => {
             handleClick={close}
             text={'Cerrar'}
             classe={'button__cancel'}
-          />
+            />
         </Modal>
       )}
       {response && modalOpen && (

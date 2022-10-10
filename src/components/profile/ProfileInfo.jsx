@@ -59,7 +59,7 @@ export const ProfileInfo = () => {
         console.log(data)
         const formData = new FormData()
         formData.append('avatar', data.avatar[0])
-        console.log("esto es el formdata", formData);
+        
     
         try {
             setLoading(true)

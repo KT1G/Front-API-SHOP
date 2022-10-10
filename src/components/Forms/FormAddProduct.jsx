@@ -1,11 +1,12 @@
 import React from 'react'
-import { useForm, useWatch } from 'react-hook-form'
+import { useForm, } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import getCategoriasLocations from '../../shared/helpers/getCategoriasLocations'
 import '../../styles/formAdd.css'
 import Upload from '../Icons/Upload'
 import Loading from '../Loading'
+
 
 const { locations, categories } = getCategoriasLocations()
 
@@ -162,10 +163,7 @@ const FormAddProduct = ({ onSubmit, loading }) => {
         )}
 
       </fieldset>
-
-      
-
-      {/* input boton */}
+  
         {!loading ? <button className="button__main" type="submit">
           Aceptar
         </button>: <Loading/>}

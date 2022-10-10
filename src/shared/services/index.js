@@ -175,7 +175,7 @@ export const confirmBuyProdutService = async ({ token, body, path }) => {
   if (!response.ok) {
     throw new Error(data.message)
   }
-  console.log(data)
+  
   return data
 }
 
@@ -207,7 +207,7 @@ export const deleteProductService = async (productId, token) => {
     throw new Error(data.message)
   }
 
-  return data.data
+  return data
 }
 
 export const getLocationService = async () => {
@@ -282,7 +282,7 @@ export const postLikeService = async (productId, token) => {
     throw new Error(data.message)
   }
 
-  return data.data
+  return data
 }
 
 export const deleteLikeService = async (productId, token) => {
@@ -301,7 +301,7 @@ export const deleteLikeService = async (productId, token) => {
     throw new Error(data.message)
   }
 
-  return data.data
+  return data
 }
 
 export const getCategoriesService = async () => {
