@@ -11,7 +11,7 @@ import ButtonListTo from '../Buttons/ButtonListTo'
 const NavbarMovil = () => {
 
   const buttons = ['Inicio', 'Favoritos', 'Subelo', 'Mail', 'Perfil']
-  const { selectLinkTo, selected, setSelected } = useNavMovilLinks(buttons)
+  const { selectLinkTo, selected, setSelected } = useNavMovilLinks()
 
   let fillContent = null
   let linkClass = null

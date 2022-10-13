@@ -35,7 +35,7 @@ const ScoreVote = () => {
     return (
       <Modal>
         <Message text={error} />
-        <ButtonTo to={'/profile' } text="Profile" classe="modal__button" />
+        <ButtonTo to={'/profile' } text="Volver" classe="modal__button" />
       </Modal>
     )
   if (loading) return <Loading classe="loader__products" />
@@ -49,7 +49,7 @@ const ScoreVote = () => {
   if (response) return (
     <Modal>
       <Message text={response} />
-      <ButtonTo to={'/profile' } text="Profile" classe="modal__button" />
+      <ButtonTo to={'/profile' } text="Volver" classe="modal__button" />
     </Modal>
   )
   

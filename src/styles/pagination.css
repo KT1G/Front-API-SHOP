@@ -4,14 +4,14 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
- 
-
+  
 }
 
 .pagination__title{
   font-size: 1.2rem;
   font-weight: 400;
   color: var(--soft--color--blue);
+  
   
 }
 
@@ -28,5 +28,6 @@
   font-size: 1.2rem;
   font-weight: 400;
   cursor: pointer;
+    border: 2px solid brown;
   
 }

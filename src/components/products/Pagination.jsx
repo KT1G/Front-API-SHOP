@@ -5,7 +5,7 @@ export const Pagination = ({ info }) => {
     <footer className="pagination__container">
       {info.prevPage && (
         <ButtonTo
-          classe={'pagination__button'}
+          classe={'pagination__button pagination__button--prev'}
           to={`${info.prevPage}`}
           text="Prev"
         />
@@ -13,7 +13,7 @@ export const Pagination = ({ info }) => {
       <h3 className="pagination__title">{info.pageView} </h3>
       {info.nextPage && (
         <ButtonTo
-          classe={'pagination__button'}
+          classe={'pagination__button pagination__button--next'}
           to={`${info.nextPage}`}
           text="Next"
         />

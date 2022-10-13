@@ -16,9 +16,19 @@ const schema = yup.object().shape({
   price: yup.number().required().max(3500),
   location: yup.string().required(),
   caption: yup.string().required().max(255),
-  image: yup.mixed().test('fileSize', 'Debes subir una foto', (value) => {
-    return value && value.length
-  }),
+  image: yup.mixed().test("fileSize", "Debes subir una foto", (value) => {
+      return value && value.length;
+    })
+    .test("file", "Foto demasiado grande", (value) => {
+      return value && value.length > 0 && value[0].size <= 1000000;
+    })
+    .test("fileFormat", "El formato debe ser 'JPEG' o 'PNG'", (value) => {
+      return (
+        value &&
+        value.length > 0 &&
+        ["image/jpeg", "image/png"].includes(value[0].type)
+      );
+    }),
 })
 
 const FormAddProduct = ({ onSubmit, loading }) => {
@@ -163,10 +173,9 @@ const FormAddProduct = ({ onSubmit, loading }) => {
         )}
 
       </fieldset>
-  
         {!loading ? <button className="button__main" type="submit">
           Aceptar
-        </button>: <Loading/>}
+        </button>: <Loading classe={'formAdd__loading'}/>}
     </form>
   )
 }

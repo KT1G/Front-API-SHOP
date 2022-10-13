@@ -31,7 +31,7 @@ const AddNewProduct = () => {
     )
   
    
-  const onSubmit = async (data, user) => {
+  const onSubmit = async (data) => {
     console.log(data)
     const formData = new FormData()
       formData.append('name', data.name)
@@ -59,7 +59,7 @@ const AddNewProduct = () => {
   
   return (
     user && <section className="page__container">
-      <FormAddProduct onSubmit={onSubmit} />
+      <FormAddProduct onSubmit={onSubmit} loading={loading} />
       {error && modalOpen && (
         <Modal>
           <Message text={error} />

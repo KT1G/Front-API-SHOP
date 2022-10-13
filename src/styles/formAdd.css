@@ -134,6 +134,10 @@ input[type="file"] {
   margin: .1rem 0;
   font-size: .9rem;
 }
+.formAdd__loading{
+  align-self: center;
+
+}
 
 
 
