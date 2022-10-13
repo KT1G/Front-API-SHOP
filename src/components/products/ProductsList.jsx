@@ -17,12 +17,7 @@ export const ProductsList = () => {
   //Recuperara el resultado de la busqueda
   const { products, info, loading, error } = useProducts()
 
-  //Para navegar entre las paginas
-  const navigate = useNavigate()
-
-  //Recuperar el parametro de la url con useParams
   
-  const { filter } = useParams()
   if (loading) return <Loading classe="loader__products" />
   if (error)
     return (
