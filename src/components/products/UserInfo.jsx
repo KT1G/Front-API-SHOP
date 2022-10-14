@@ -1,6 +1,8 @@
 import { Link} from 'react-router-dom'
 import useAuth from '../../shared/hooks/useAuth'
 import ButtonTo from '../Buttons/ButtonTo'
+import SmallStar from '../Icons/SmallStar'
+import VoteOnlyRead from '../VoteOnlyRead'
 import { Like } from './Like'
 
 
@@ -15,7 +17,7 @@ export const UserInfo = ({ userInfo, productId , productStatus }) => {
       <nav className="userInfo__nav">
         <ul className="userInfo__list">
           <Link to={`/profile/info/${userInfo.id}`}>
-            <li className="userInfo__element" >
+            <li className="userInfo__element">
               <section className="userInfo__element__container">
                 <div className="userInfo__avatar__background">
                   {userInfo.avatar ? (
@@ -44,20 +46,20 @@ export const UserInfo = ({ userInfo, productId , productStatus }) => {
           </Link>
           <li className="userInfo__element">
             <section className="userInfo__element__container">
-              <p className="userInfo__element__text">{userInfo?.score} ⭐</p>
+              <VoteOnlyRead value={userInfo?.score} />
               <p className="userInfo__element__text--valoraciones">
                 {userInfo.votes} <span>Valoraciones</span>
               </p>
             </section>
           </li>
-          {user && user.id!==userInfo.id && productStatus  !== 'bought' && (
+          {user && user.id !== userInfo.id && productStatus !== 'bought' && (
             <Like productId={productId} userId={user.id} />
           )}
           {user && user.id === userInfo.id && (
             <ButtonTo
-            handleclick={logout}
-            text={'Logout'}
-            classe={'button__logout'}
+              handleclick={logout}
+              text={'Logout'}
+              classe={'button__logout'}
             />
           )}
         </ul>

@@ -1,13 +1,16 @@
 import { useEffect } from 'react'
 import { useState } from 'react'
+
 import { Link, useLocation } from 'react-router-dom'
 
 import ButtonTo from '../Buttons/ButtonTo'
+import VoteOnlyRead from '../VoteOnlyRead'
 
 const Card = ({ section, element }) => {
   const [includeUser, setIncludeUser] = useState(false)
   const location = useLocation().search
-  console.log(element)
+  const valoration = element.valoration
+  console.log(valoration)
 
   useEffect(() => {
     location.includes('user') ? setIncludeUser(true) : setIncludeUser(false)
@@ -35,7 +38,10 @@ const Card = ({ section, element }) => {
               />
             )}
         </div>
-        <h3 className="productList__element__title">{element.price + '€'}</h3>
+        <div className='productList__title__container'>
+          <h3 className="productList__element__title">{element.price + '€'}</h3>
+          {element.valoration && <VoteOnlyRead value={valoration} />}
+        </div>
         <h4 className="productList__element__subTitle">{`${element.name} | ${element.category} | ${element.location}`}</h4>
         <p className="productList__element__text">{element.caption}</p>
       </Link>
