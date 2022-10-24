@@ -7,7 +7,7 @@ import '../styles/profile.css'
 
 const Profile = () => {
   const { user } = useAuth()
-  console.log('user', user);
+
   if(user) return (
     <div className='page__container'>
       <section className='profile__container'>

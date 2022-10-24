@@ -7,9 +7,11 @@ import { ProductInfo } from '../components/products/ProductInfo'
 import { UserInfo } from '../components/products/UserInfo'
 import '../styles/productDetail.css'
 
+
 export const ProductDetail = () => {
   //Recuperara el resultado de la busqueda
   const { product, ownerUser, loading, error } = useProduct()
+
 
   //Guardar el owner user en el localstarage
   localStorage.setItem('ownerUser', JSON.stringify(ownerUser))
@@ -21,8 +23,10 @@ export const ProductDetail = () => {
         <ButtonTo text="Home" classe="modal__button" />
       </Modal>
     )
+  
+ 
   return (
-    <div className='page__container'>
+    <div className="page__container">
       <section className="product__container">
         <UserInfo
           userInfo={ownerUser}

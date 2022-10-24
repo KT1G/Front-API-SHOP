@@ -20,7 +20,7 @@ export const Search = () => {
 
     return (
         <form className="header__form" onSubmit={handleSubmit}>
-            <input className="header__input" type="text" placeholder={`Search by name`} onChange={handleChange} value={text} />
+            <input className="header__input" type="text" placeholder={`¿Qué estás buscando?`} onChange={handleChange} value={text} />
             {/* <ButtonSearchFilter setFilter={setFilter} /> */}
         </form>
     )

@@ -1,12 +1,13 @@
 import React from 'react'
-import { useForm, } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import getCategoriasLocations from '../../shared/helpers/getCategoriasLocations'
 import '../../styles/formAdd.css'
 import Upload from '../Icons/Upload'
 import Loading from '../Loading'
-
+import { motion } from 'framer-motion'
+import FormUploadImage from './FormUploadImage'
 
 const { locations, categories } = getCategoriasLocations()
 
@@ -16,18 +17,20 @@ const schema = yup.object().shape({
   price: yup.number().required().max(3500),
   location: yup.string().required(),
   caption: yup.string().required().max(255),
-  image: yup.mixed().test("fileSize", "Debes subir una foto", (value) => {
-      return value && value.length;
+  image: yup
+    .mixed()
+    .test('fileSize', 'Debes subir una foto', (value) => {
+      return value && value.length
     })
-    .test("file", "Foto demasiado grande", (value) => {
-      return value && value.length > 0 && value[0].size <= 1000000;
+    .test('file', 'Foto demasiado grande', (value) => {
+      return value && value.length > 0 && value[0].size <= 5000000
     })
-    .test("fileFormat", "El formato debe ser 'JPEG' o 'PNG'", (value) => {
+    .test('fileFormat', "El formato debe ser 'JPEG' o 'PNG'", (value) => {
       return (
         value &&
         value.length > 0 &&
-        ["image/jpeg", "image/png"].includes(value[0].type)
-      );
+        ['image/jpeg', 'image/png'].includes(value[0].type)
+      )
     }),
 })
 
@@ -45,6 +48,8 @@ const FormAddProduct = ({ onSubmit, loading }) => {
   const nameProductLength = nameProduct ? nameProduct.length : 0
   const captionProduct = watch('caption')
   const captionProductLength = captionProduct ? captionProduct.length : 0
+  const imageUpload = watch('image')
+  const image = imageUpload?.length
 
   return (
     <form className="formAdd__container" onSubmit={handleSubmit(onSubmit)}>
@@ -145,37 +150,25 @@ const FormAddProduct = ({ onSubmit, loading }) => {
           {...register('caption')}
           id="textArea"
           placeholder="Añade una descripción del producto como estado, modelo, color..."
-        >
-        </textarea>
-          {errors.caption?.type === 'max' && (
-            <p className="formAdd__error">
-              Has superado el límite de caracteres
-            </p>
-          )}
+        ></textarea>
+        {errors.caption?.type === 'max' && (
+          <p className="formAdd__error">Has superado el límite de caracteres</p>
+        )}
       </fieldset>
 
       <fieldset className="formAdd__group">
-
-
-        <label className="formAdd__group__label--file" htmlFor="file">
-          <Upload />
-          <input
-            className=" form__group__file"
-            type="file"
-            {...register('image')}
-            id="file"
-          />
-          <p>Sube una imagen !</p>
-        </label>
-
+        <FormUploadImage image={image} register={register} value={'image'}/>
         {errors.image && (
           <p className="formAdd__error">{errors.image.message}</p>
         )}
-
       </fieldset>
-        {!loading ? <button className="button__main" type="submit">
+      {!loading ? (
+        <button className="button__main" type="submit">
           Aceptar
-        </button>: <Loading classe={'formAdd__loading'}/>}
+        </button>
+      ) : (
+        <Loading classe={'formAdd__loading'} />
+      )}
     </form>
   )
 }

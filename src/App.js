@@ -5,9 +5,11 @@ import NavbarMovil from './components/Header/NavbarMovil'
 import './styles/app.css'
 import { ScrollRestoration } from 'react-router-dom'
 
+
 function App() {
+
   return (
-    <main className="main__container">
+    <main className="main__container ">
       <Header />
       <Outlet />
       <NavbarMovil />

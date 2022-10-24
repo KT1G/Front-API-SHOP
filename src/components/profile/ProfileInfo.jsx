@@ -1,4 +1,4 @@
-import { useLocation, useParams } from 'react-router-dom'
+import {  useParams } from 'react-router-dom'
 import { useUser } from '../../shared/hooks/useUser'
 import { Avatar } from './Avatar'
 import ButtonTo from '../Buttons/ButtonTo'
@@ -22,7 +22,7 @@ export const ProfileInfo = () => {
   const [response, setResponse] = useState(null)
   const [newError, setNewError] = useState(null)
   //const [loading, setLoading] = useState(false)
-  const location = useLocation()
+ 
 
   const { id } = useParams()
 
