@@ -13,7 +13,8 @@ const useProducts = () => {
   useEffect(() => {
     const loadProducts = async () => {
       try {
-        setLoading(true)
+        setLoading(true)  
+        setError('')
         const allInfoProducts = await getProductsService(path)
         const pagination = allInfoProducts.info
         const listProducts = allInfoProducts.object

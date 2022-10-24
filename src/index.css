@@ -26,10 +26,11 @@ code {
   --main--color--gray: #afaaabb3;
   --soft--color--gray: #ECEFF1;
   --hard--color--gray: #898888;
+  
 
   
-  --hard--color--blue:#253238;
   --main--color--blue: rgb(77, 130, 255);
+  --hard--color--blue:#253238;
   --soft--color--blue: #607D8B;
   --light--color--blue:#c1cbd0bc;
 

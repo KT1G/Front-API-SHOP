@@ -1,16 +1,12 @@
-import { Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import useAuth from '../../shared/hooks/useAuth'
 import ButtonTo from '../Buttons/ButtonTo'
-import SmallStar from '../Icons/SmallStar'
+
 import VoteOnlyRead from '../VoteOnlyRead'
 import { Like } from './Like'
 
-
-
-export const UserInfo = ({ userInfo, productId , productStatus }) => {
-  
-
-  const { user, logout } = useAuth()  //Para saber si el usuario esta logueado y renderizar el boton de like
+export const UserInfo = ({ userInfo, productId, productStatus }) => {
+  const { user, logout } = useAuth() //Para saber si el usuario esta logueado y renderizar el boton de like
 
   return (
     <header className="userInfo__container">

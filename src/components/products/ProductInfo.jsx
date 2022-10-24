@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import modalEffects from '../../shared/helpers/modalEffects'
 import useModal from '../../shared/hooks/useModal'
 import Button from '../../components/Buttons/Button'
@@ -15,7 +15,8 @@ import { ButtonListActions } from '../Buttons/ButtonListActions'
 
 export const ProductInfo = ({ product }) => {
   const { close, modalOpen, open } = useModal()
-  const { user, token } = useAuth()
+  const { user, token, logout } = useAuth()
+  const navigate = useNavigate()
 
   const { sliceMid } = modalEffects()
   const [response, setResponse] = useState('')
@@ -39,7 +40,12 @@ export const ProductInfo = ({ product }) => {
     }
   }
   if (loading) return <Loading classe="loader__products" />
- 
+
+  if (error === 'jwt expired') {
+    logout()
+    navigate('/login')
+  }
+  
   if (error)
     return (
       <Modal>
@@ -47,6 +53,7 @@ export const ProductInfo = ({ product }) => {
         <ButtonTo text="Home" classe="modal__button" />
       </Modal>
     )
+
 
   return (
     <article className="productInfo__container">

@@ -10,11 +10,14 @@ import CategoriesSelectModal from '../filtersProducts/CategoriesSelectModal'
 import PrecioSelectModal from '../filtersProducts/PrecioSelectModal'
 import LocationSelectModal from '../filtersProducts/LocationSelectModal'
 import ButtonFilter from '../../components/Buttons/ButtonFilter'
+import { useLocation } from 'react-router-dom'
+import selectFilters from '../../shared/helpers/selectFilters'
 
 const HeaderProducts = () => {
-  const filters = ['Categorias', 'Precio', 'Localidad']
-  
-  
+  const location = useLocation()
+  const category = location.pathname.split('/').find((item) => item === 'category')
+  const filters = selectFilters(category)
+
   const [selected, setSelected] = useState(false)
   const { close, modalOpen, open } = useModal()
 
