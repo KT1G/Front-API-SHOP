@@ -1,29 +1,32 @@
-import React from 'react'
-import { useSearchParams } from 'react-router-dom'
+import React from "react";
+import { useSearchParams } from "react-router-dom";
 
-
-const ButtonList = ({ text, amount }) => {
-  const [params, setParams] = useSearchParams()
+const ButtonList = ({ text, amount, close }) => {
+  const [params, setParams] = useSearchParams();
   const handleClick = () => {
-    if (params.toString() === '') {
-      setParams({ location: text })
+    if (params.toString() === "") {
+      setParams({ location: text });
     } else {
       //si ya esta en la url se borra
-      if (params.get('location') === text) {
-        params.delete('location')
+      if (params.get("location") === text) {
+        params.delete("location");
       } else {
-        params.set('location', text)
+        params.set("location", text);
       }
-      setParams(params)
+      params.set("page", 1);
+      setParams(params);
     }
-  }
+    close();
+  };
 
   return (
     <li className="locationSelect__element" onClick={handleClick}>
-      <span className="locationSelect__element__textAmount">{'('+ amount + ')'}</span>
+      <span className="locationSelect__element__textAmount">
+        {"(" + amount + ")"}
+      </span>
       <p className="locationSelect__element__text">{text}</p>
     </li>
-  )
-}
+  );
+};
 
-export default ButtonList
+export default ButtonList;

@@ -1,5 +1,5 @@
-.page__container {
-  padding-top: 8rem;
+.profileInfo__page__container {
+  padding-top: 13rem;
   width: 100%;
   height: 100%;
   display: flex;
@@ -73,6 +73,7 @@
 
 .profileInfo__container {
   width: min(95%, 750px);
+  /* margin-top: 4rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,14 +97,14 @@
   font-size: 2rem;
 }
 
-.profileInfo__section {
+.profileInfo__section__info {
   width: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  border-bottom: 1px solid var(--light--color--blue);
-  padding-bottom: 1rem;
-  margin-bottom: 3rem;
+  /* border-bottom: 1px solid var(--light--color--blue); */
+  /* padding-bottom: 1rem; */
+  /* margin-bottom: 3rem; */
   list-style: none;
   gap: 2rem;
 }
@@ -120,8 +121,16 @@
   gap: 2rem;
 }
 
+.profileInfo__avatar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
 .profileInfo__article__info {
-  width: 65;
+  width: 65%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -129,6 +138,14 @@
   /* border-bottom: 1px solid var(--light--color--blue); */
   margin-bottom: 1rem;
   list-style: none;
+  gap: 2rem;
+}
+
+.profileInfo__info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 2rem;
 }
 
@@ -149,6 +166,21 @@
   width: 100%;
   -o-object-fit: contain;
   object-fit: contain;
+}
+
+.productProfileList__container {
+  margin: auto;
+
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--soft--color--red);
+  border-radius: 10px;
+  gap: 2rem;
+  /* padding-top: 13rem; */
 }
 
 /* Info Data */
@@ -225,7 +257,6 @@
   display: grid;
   gap: 2em;
   width: 50%;
-  /* margin: auto 0; */
 }
 
 .info__form__group {
@@ -234,16 +265,28 @@
   color: var(--hard--color--gray);
 }
 
+/* Loading in Forms */
+.updateUser {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 /* Meadia Query */
 
 @media screen and (max-width: 768px) {
-  .profileInfo__section {
+  .profileInfo__section__info {
     flex-direction: column;
     align-items: center;
   }
 
   .profileInfo__article__avatar {
     width: 100%;
+  }
+
+  .profileInfo__avatar__background {
+    min-width: 50vw;
+    min-height: 50vw;
   }
 
   .profileInfo__article__info {

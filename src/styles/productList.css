@@ -9,10 +9,22 @@
   padding-top: 13rem;
 }
 
-.productList__container > a{
-  margin: 2rem 0 4rem 0;}
+.productList__container > a {
+  margin: 2rem 0 4rem 0;
+}
 
+.infinite-scroll-component__outerdiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
+.infinite-scroll-component {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .productList__list {
   width: min(95%, 64rem);
@@ -32,25 +44,22 @@
   max-width: 15rem;
   overflow: hidden;
   border-radius: 10px;
-  
 }
-.productList__title__container{
+.productList__title__container {
   width: 100%;
   display: flex;
   align-items: center;
-  padding-right: .5rem;
+  padding-right: 0.5rem;
   justify-content: space-between;
- 
 }
-.productList__image__container{
+
+.productList__image__container {
   position: relative;
   z-index: 0;
   width: 100%;
-
 }
 
-
-.productList__button{
+.productList__button {
   position: absolute;
   top: 85%;
   left: 5px;
@@ -62,10 +71,9 @@
   background-color: var(--mid--color--red);
   border: 2px solid var(--main--color--red);
   transition: 0.3s;
-
 }
 
-.productList__button:hover{
+.productList__button:hover {
   background-color: var(--main--color--red);
   border: 2px solid var(--mid--color--red);
   transition: 0.3s;
@@ -76,34 +84,31 @@
   height: 19rem;
   padding: 0.1rem;
   border-radius: 10px;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
 .productList__element__title {
-  margin:0.3rem 0.5rem ;
+  margin: 0.3rem 0.5rem;
   font-weight: bold;
   color: var(--hard--color--blue);
-
 }
 
 .productList__element__subTitle {
-    margin:0.3rem 0.5rem;
-    font-weight: 300;
-    color: var(--hard--color--blue);
+  margin: 0.3rem 0.5rem;
+  font-weight: 300;
+  color: var(--hard--color--blue);
 }
 
 .productList__element__text {
-  margin:1rem 0.5rem;
-  padding:0.1rem;
+  margin: 1rem 0.5rem;
+  padding: 0.1rem;
   font-weight: 300;
   color: var(--soft--color--blue);
-  
-  
-} 
+}
 
 @media (max-width: 1070px) {
-
-  .productList__container{
+  .productList__container {
     padding-top: 12rem;
   }
   .productList__list {
@@ -111,8 +116,7 @@
   }
 }
 @media (max-width: 1000px) {
-
-  .productList__container{
+  .productList__container {
     padding-top: 8rem;
   }
   .productList__list {

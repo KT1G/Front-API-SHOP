@@ -15,6 +15,7 @@ const useConfirm = () => {
     const confirmAccount = async () => {
       try {
         setLoading(true)
+        setError("")
         const infoValidate = await getValidateAccountService(location.pathname)
       
         setData(infoValidate.message)
