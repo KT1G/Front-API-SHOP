@@ -1,20 +1,21 @@
-import { ButtonDelete } from "./ButtonDelete"
+import { ButtonBuy } from "./ButtonBuy";
+import { ButtonDelete } from "./ButtonDelete";
+import { ButtonEdit } from "./ButtonEdit";
 
-export const ButtonListActions = ({ open, user, product }) => {
-    console.log('esto es el product', product )
-    return(
-        <ul className="pruductInfo__list__button">
-            {(user && user.id !== product.user_id && product.status !== 'bought') && (
-                <li>
-                    <button onClick={open} className="pruductInfo__info__button">Comprar</button>
-                </li>
-            )}
-            {user && (user.id === product.user_id || user.status === 'admin') && (
-                <>
-                    {/* <ButtonEdit productId={product.id} /> */}
-                    <ButtonDelete productId={product.id} />
-                </>
-            )}
-        </ul>
-    )
-}
+export const ButtonListActions = ({ user, product, setName }) => {
+  return (
+    <>
+      <ul className="pruductInfo__list__button">
+        {user && user.id !== product.user_id && product.status !== "bought" && (
+          <ButtonBuy productId={product.id} />
+        )}
+        {user && (user.id === product.user_id || user.status === "admin") && (
+          <>
+            <ButtonEdit product={product} setName={setName} />
+            <ButtonDelete productId={product.id} />
+          </>
+        )}
+      </ul>
+    </>
+  );
+};

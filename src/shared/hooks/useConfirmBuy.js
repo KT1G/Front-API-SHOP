@@ -20,6 +20,7 @@ const useConfirmBuy = () => {
     const getProduct = async () => {
       try {
         setLoading(true)
+        setError("");
         const data = await getProductsService(path)
         setProduct(data.object[0])
         setBuyer(tokenData.email)

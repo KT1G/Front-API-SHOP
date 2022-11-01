@@ -42,7 +42,6 @@ const AddNewProduct = () => {
     )
   
   const onSubmit = async (data) => {
-    console.log(data)
     const formData = new FormData()
     formData.append('name', data.name)
     formData.append('caption', data.caption)
@@ -52,13 +51,11 @@ const AddNewProduct = () => {
     formData.append('image', data.image[0])
 
     try {
-      console.log('esto es el path', path)
       setLoading(true)
       setError('')
       const data = await AddNewProductService(formData, token)
       setResponse(data.message)
       open()
-      console.log(data)
     } catch (error) {
       setError(error.message)
     } finally {

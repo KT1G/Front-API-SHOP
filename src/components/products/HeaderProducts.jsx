@@ -21,28 +21,43 @@ const HeaderProducts = () => {
   const [selected, setSelected] = useState(false)
   const { close, modalOpen, open } = useModal()
 
-  const { sliceIn } = modalEffects()
+  const { sliceIn } = modalEffects();
 
   const handleclik = (filter) => {
-    setSelected(filter)
-    open()
-  }
+    setSelected(filter);
+    open();
+  };
 
   const printFilters = (selected) => {
     const renders = {
-      Categorias: <CategoriesSelectModal close={close} modalOpen={modalOpen} />,
-      Precio: <PrecioSelectModal close={close} modalOpen={modalOpen} />,
-      Localidad: <LocationSelectModal close={close} modalOpen={modalOpen}  />,
-    }
+      Categorias: (
+        <CategoriesSelectModal
+          close={close}
+          modalOpen={modalOpen}
+        />
+      ),
+      Precio: (
+        <PrecioSelectModal
+          close={close}
+          modalOpen={modalOpen}
+        />
+      ),
+      Localidad: (
+        <LocationSelectModal
+          close={close}
+          modalOpen={modalOpen}
+        />
+      ),
+    };
 
-    return renders[selected]
-  }
+    return renders[selected];
+  };
 
   const render = {
     Categorias: <Categori />,
     Precio: <Price />,
     Localidad: <Locations />,
-  }
+  };
   return (
     <section className="headerProducts__container">
       <ul className="headerProducts__list">
@@ -55,13 +70,13 @@ const HeaderProducts = () => {
             >
               {render[filter]}
             </ButtonFilter>
-          )
+          );
         })}
       </ul>
       {modalOpen && (
         <Modal
-          classe={'modal__filter'}
-          classeBack={'white'}
+          classe={"modal__filter"}
+          classeBack={"white"}
           variant={sliceIn}
           handleClose={close}
         >
@@ -69,7 +84,7 @@ const HeaderProducts = () => {
         </Modal>
       )}
     </section>
-  )
-}
+  );
+};
 
-export default HeaderProducts
+export default HeaderProducts;

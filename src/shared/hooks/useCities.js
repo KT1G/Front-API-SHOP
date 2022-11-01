@@ -10,6 +10,7 @@ const useCities = () => {
     const loadCategories = async () => {
       try {
         setLoading(true)
+        setError("");
         const locations = await getLocationService()
         setLoading(false)
         setLocation(locations)

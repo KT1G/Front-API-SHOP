@@ -1,153 +1,59 @@
-import {  useParams } from 'react-router-dom'
-import { useUser } from '../../shared/hooks/useUser'
-import { Avatar } from './Avatar'
-import ButtonTo from '../Buttons/ButtonTo'
-import FormUpdateUserAvatar from '../Forms/FormUpdateUserAvatar'
-import FormUpdateUserInfo from '../Forms/FormUpdateUserInfo'
-import Loading from '../Loading'
-import Message from '../Message'
-import Modal from '../Modal/Modal'
-import useAuth from '../../shared/hooks/useAuth'
-import { Info } from './Info'
-import { useState } from 'react'
-import useModal from '../../shared/hooks/useModal'
-import Button from '../Buttons/Button'
-import {
-  updateUserAvatarService,
-  updateUserInfoService,
-} from '../../shared/services'
+import { useParams } from "react-router-dom";
+import { useUser } from "../../shared/hooks/useUser";
+import { Avatar } from "./Avatar";
+import ButtonTo from "../Buttons/ButtonTo";
+import Loading from "../Loading";
+import Message from "../Message";
+import Modal from "../Modal/Modal";
+import useAuth from "../../shared/hooks/useAuth";
+import { Info } from "./Info";
+import useModal from "../../shared/hooks/useModal";
+import { ProductsProfileList } from "./ProductsProfileList";
 
 export const ProfileInfo = () => {
-  const { modalOpen, close, open } = useModal()
-  const [response, setResponse] = useState(null)
-  const [newError, setNewError] = useState(null)
+  const { modalOpen, close, open } = useModal();
   //const [loading, setLoading] = useState(false)
- 
 
-  const { id } = useParams()
+  const { id } = useParams();
 
-  const { profileUser, loading, setLoading, error } = useUser(id)
+  const {
+    profileUser,
+    name,
+    setName,
+    bio,
+    setBio,
+    avatar,
+    setAvatar,
+    loading,
+    setLoading,
+    error,
+  } = useUser(id);
 
-  const { user, token } = useAuth()
+  const { user } = useAuth();
 
-  const onSubmitInfo = async (data) => {
-    console.log(data)
-    try {
-      setLoading(true)
-      setNewError('')
-      const update = await updateUserInfoService(data, token)
-      setResponse(update.message)
-      open()
-      console.log(update)
-    } catch (error) {
-      setNewError(error.message)
-      open()
-    } finally {
-      setLoading(false)
-    }
-  }
+  if (!profileUser && loading) return <Loading classe={"updateUser"} />;
 
-  const onSubmitAvatar = async (data) => {
-    console.log(data)
-    const formData = new FormData()
-    formData.append('avatar', data.avatar[0])
-
-    try {
-      setLoading(true)
-      setNewError('')
-      const data = await updateUserAvatarService(formData, token)
-      setResponse(data.message)
-      console.log(data.message)
-      open()
-      console.log(data)
-    } catch (error) {
-      setNewError(error.message)
-      open()
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  if (loading) return <Loading classe={'categoriesSelect__loader'} />
-  if (error)
+  if (error && modalOpen)
     return (
       <Modal>
         <Message text={error} />
-        <ButtonTo to={'/profile'} text="Volver" classe="modal__button" />
+        <ButtonTo to={"/profile"} text="Volver" classe="modal__button" />
       </Modal>
-    )
+    );
+
   return (
-    <div className="page__container">
+    <div className="profileInfo__page__container">
       <section className="profileInfo__container">
-        <header className="profileInfo__header__text">
-          <h1 className="profileInfo__header__h1">PERFIL</h1>
-        </header>
-        <section className="profileInfo__section">
+        <section className="profileInfo__section__info">
           <article className="profileInfo__article__avatar">
-            <Avatar user={profileUser} />
-            {user && user?.id === profileUser.id && (
-              <FormUpdateUserAvatar
-                onSubmit={onSubmitAvatar}
-                loading={loading}
-                user={profileUser}
-              />
-            )}
-            {error && modalOpen && (
-              <Modal>
-                <Message text={newError} />
-                <Button
-                  handleClick={close}
-                  text={'Cerrar'}
-                  classe={'button__cancel'}
-                />
-              </Modal>
-            )}
-            {response && modalOpen && (
-              <Modal handleClose={close}>
-                <Message text={response} />
-                <Button
-                  handleClick={close}
-                  text={'Listo !'}
-                  classe={'modal__button'}
-                />
-              </Modal>
-            )}
+            <Avatar profileUser={profileUser} setAvatar={setAvatar} />
           </article>
-          <article
-            style={{ alignItems: 'flex-star' }}
-            className="profileInfo__article__info"
-          >
-            <Info user={profileUser} />
-            {user && user?.id === profileUser.id && (
-              <FormUpdateUserInfo
-                onSubmit={onSubmitInfo}
-                loading={loading}
-                user={profileUser}
-              />
-            )}
-            {error && modalOpen && (
-              <Modal>
-                <Message text={newError} />
-                <Button
-                  handleClick={close}
-                  text={'Cerrar'}
-                  classe={'button__cancel'}
-                />
-              </Modal>
-            )}
-            {response && modalOpen && (
-              <Modal handleClose={close}>
-                <Message text={response} />
-                <Button
-                  handleClick={close}
-                  text={'Listo !'}
-                  classe={'modal__button'}
-                />
-              </Modal>
-            )}
+          <article className="profileInfo__article__info">
+            <Info profileUser={profileUser} setName={setName} setBio={setBio} />
           </article>
         </section>
+        {(!user || user.id !== profileUser.id) && <ProductsProfileList />}
       </section>
     </div>
-  )
-}
+  );
+};

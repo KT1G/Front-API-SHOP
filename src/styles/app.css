@@ -23,6 +23,16 @@ a {
   align-items: center;
 }
 
+.loader__nextProducts {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin: 2rem 0 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* FORMULARIO REGISTER y LOGIN*/
 
 .main__section {
@@ -84,7 +94,7 @@ a {
   border: none;
   outline: none;
   border-bottom: 2px solid var(--hard--color--gray);
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .form__group__input:focus + .form__group__label,
@@ -106,7 +116,7 @@ a {
 
 .button {
   background-color: var(--hard--color--red);
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   border: none;
   color: white;
   cursor: pointer;
@@ -169,10 +179,9 @@ form > p {
 /* FORM FOOTER */
 .form__footer {
   width: 100%;
-
 }
 .form__footer__button {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   border: none;
   padding: 0 0.5rem;
   cursor: pointer;

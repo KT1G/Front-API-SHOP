@@ -1,15 +1,15 @@
-import React from 'react'
-import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from 'yup'
-import getCategoriasLocations from '../../shared/helpers/getCategoriasLocations'
-import '../../styles/formAdd.css'
-import Upload from '../Icons/Upload'
-import Loading from '../Loading'
-import { motion } from 'framer-motion'
-import FormUploadImage from './FormUploadImage'
+import React from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import getCategoriasLocations from "../../shared/helpers/getCategoriasLocations";
+import "../../styles/formAdd.css";
+import Upload from "../Icons/Upload";
+import Loading from "../Loading";
+import { motion } from "framer-motion";
+import FormUploadImage from "./FormUploadImage";
 
-const { locations, categories } = getCategoriasLocations()
+const { locations, categories } = getCategoriasLocations();
 
 const schema = yup.object().shape({
   name: yup.string().required().max(60),
@@ -19,20 +19,20 @@ const schema = yup.object().shape({
   caption: yup.string().required().max(255),
   image: yup
     .mixed()
-    .test('fileSize', 'Debes subir una foto', (value) => {
-      return value && value.length
+    .test("fileSize", "Debes subir una foto", (value) => {
+      return value && value.length;
     })
-    .test('file', 'Foto demasiado grande', (value) => {
-      return value && value.length > 0 && value[0].size <= 5000000
+    .test("file", "Foto demasiado grande", (value) => {
+      return value && value.length > 0 && value[0].size <= 5000000;
     })
-    .test('fileFormat', "El formato debe ser 'JPEG' o 'PNG'", (value) => {
+    .test("fileFormat", "El formato debe ser 'JPEG' o 'PNG'", (value) => {
       return (
         value &&
         value.length > 0 &&
-        ['image/jpeg', 'image/png'].includes(value[0].type)
-      )
+        ["image/jpeg", "image/png"].includes(value[0].type)
+      );
     }),
-})
+});
 
 const FormAddProduct = ({ onSubmit, loading }) => {
   const {
@@ -42,14 +42,13 @@ const FormAddProduct = ({ onSubmit, loading }) => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-  })
-  console.log(errors)
-  const nameProduct = watch('name')
-  const nameProductLength = nameProduct ? nameProduct.length : 0
-  const captionProduct = watch('caption')
-  const captionProductLength = captionProduct ? captionProduct.length : 0
-  const imageUpload = watch('image')
-  const image = imageUpload?.length
+  });
+  const nameProduct = watch("name");
+  const nameProductLength = nameProduct ? nameProduct.length : 0;
+  const captionProduct = watch("caption");
+  const captionProductLength = captionProduct ? captionProduct.length : 0;
+  const imageUpload = watch("image");
+  const image = imageUpload?.length;
 
   return (
     <form className="formAdd__container" onSubmit={handleSubmit(onSubmit)}>
@@ -64,14 +63,14 @@ const FormAddProduct = ({ onSubmit, loading }) => {
         <input
           className=" formAdd__group__input"
           type="text"
-          {...register('name')}
+          {...register("name")}
           id="name"
           placeholder="En pocas palabras..."
         />
-        {errors.name?.type === 'required' && (
+        {errors.name?.type === "required" && (
           <p className="formAdd__error">Este campo es obligatorio</p>
         )}
-        {errors.name?.type === 'max' && (
+        {errors.name?.type === "max" && (
           <p className="formAdd__error">Has superado el límite de caracteres</p>
         )}
       </fieldset>
@@ -83,7 +82,7 @@ const FormAddProduct = ({ onSubmit, loading }) => {
           </label>
           <select
             className=" formAdd__group__select"
-            {...register('category')}
+            {...register("category")}
             id="select"
             placeholder="Categoría"
           >
@@ -102,17 +101,17 @@ const FormAddProduct = ({ onSubmit, loading }) => {
           <input
             className="formAdd__group__input"
             type="number"
-            {...register('price', {
+            {...register("price", {
               required: true,
               validate: (value) => value > 0 && value <= 3500,
             })}
             id="number"
             placeholder="Sé razonable... max 3500 €"
           />
-          {errors.price?.type === 'typeError' && (
+          {errors.price?.type === "typeError" && (
             <p className="formAdd__error">Este campo es obligatorio</p>
           )}
-          {errors.price?.type === 'max' && (
+          {errors.price?.type === "max" && (
             <p className="formAdd__error">
               El precio no puede ser superior a 3500 €
             </p>
@@ -126,7 +125,7 @@ const FormAddProduct = ({ onSubmit, loading }) => {
         </label>
         <select
           className="formAdd__group__select"
-          {...register('location')}
+          {...register("location")}
           placeholder="Donde lo quieres vender..."
           id="select2"
         >
@@ -147,17 +146,17 @@ const FormAddProduct = ({ onSubmit, loading }) => {
         </div>
         <textarea
           className="formAdd__group__textarea"
-          {...register('caption')}
+          {...register("caption")}
           id="textArea"
           placeholder="Añade una descripción del producto como estado, modelo, color..."
         ></textarea>
-        {errors.caption?.type === 'max' && (
+        {errors.caption?.type === "max" && (
           <p className="formAdd__error">Has superado el límite de caracteres</p>
         )}
       </fieldset>
 
       <fieldset className="formAdd__group">
-        <FormUploadImage image={image} register={register} value={'image'}/>
+        <FormUploadImage image={image} register={register} value={"image"} />
         {errors.image && (
           <p className="formAdd__error">{errors.image.message}</p>
         )}
@@ -167,10 +166,10 @@ const FormAddProduct = ({ onSubmit, loading }) => {
           Aceptar
         </button>
       ) : (
-        <Loading classe={'formAdd__loading'} />
+        <Loading classe={"formAdd__loading"} />
       )}
     </form>
-  )
-}
+  );
+};
 
-export default FormAddProduct
+export default FormAddProduct;

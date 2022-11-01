@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { createContext, useEffect, useState } from "react";
+import useAuth from "../hooks/useAuth";
 import {
   getLikeProductIdService,
   getProductsService,
   getUserService,
 } from "../services";
-import useAuth from "./useAuth";
 
-export const useProduct = () => {
+export const ProductContext = createContext();
+
+export const ProductProviderComponent = ({ children }) => {
   const [product, setProduct] = useState(null);
   const [ownerUser, setOwnerUser] = useState(null);
   const [liked, setLiked] = useState(false);
@@ -24,7 +25,8 @@ export const useProduct = () => {
   const [image, setImage] = useState(null);
   const [caption, setCaption] = useState(null);
 
-  const locationURL = useLocation();
+  //Recuperar productLocation de localStorage
+  const locationURL = JSON.parse(localStorage.getItem("productLocation"));
 
   //recuperar el user del authContext
   const { user } = useAuth();
@@ -33,8 +35,8 @@ export const useProduct = () => {
     const loadProductAndOwnerUser = async () => {
       try {
         setLoading(true);
-        setError("");
-        const data = await getProductsService(locationURL.pathname);
+        let data;
+        locationURL && (data = await getProductsService(locationURL));
         const product = data.object[0];
         const ownerUser = await getUserService(product.user_id);
 

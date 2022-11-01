@@ -1,23 +1,21 @@
-import { useEffect } from 'react'
-import { useState } from 'react'
+import { useEffect } from "react";
+import { useState } from "react";
 
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from "react-router-dom";
 
-import ButtonTo from '../Buttons/ButtonTo'
-import VoteOnlyRead from '../VoteOnlyRead'
+import ButtonTo from "../Buttons/ButtonTo";
+import VoteOnlyRead from "../VoteOnlyRead";
 
 const Card = ({ section, element }) => {
-  const [includeUser, setIncludeUser] = useState(false)
-  const location = useLocation().search
-  const valoration = element.valoration
-  console.log(valoration)
+  const [includeUser, setIncludeUser] = useState(false);
+  const location = useLocation().search;
+  const valoration = element.valoration;
 
   useEffect(() => {
-    location.includes('user') ? setIncludeUser(true) : setIncludeUser(false)
-  }, [element.id, location])
+    location.includes("user") ? setIncludeUser(true) : setIncludeUser(false);
+  }, [element.id, location]);
 
   //img src añadir http://localhost:9000/uploads/products/4/
-  console.log('esto es el producto', element.status)
   return (
     <li className="productList__element">
       <Link to={`/${section}/filterBy/id/${element.id}`}>
@@ -28,25 +26,25 @@ const Card = ({ section, element }) => {
             alt={element.name}
           />
 
-          {element.status === 'bought' &&
+          {element.status === "bought" &&
             !includeUser &&
             element.valoration === null && (
               <ButtonTo
                 to={`/users/score/${element.id}`}
-                classe={'productList__button'}
-                text={'Valorar'}
+                classe={"productList__button"}
+                text={"Valorar"}
               />
             )}
         </div>
-        <div className='productList__title__container'>
-          <h3 className="productList__element__title">{element.price + '€'}</h3>
+        <div className="productList__title__container">
+          <h3 className="productList__element__title">{element.price + "€"}</h3>
           {element.valoration && <VoteOnlyRead value={valoration} />}
         </div>
         <h4 className="productList__element__subTitle">{`${element.name} | ${element.category} | ${element.location}`}</h4>
         <p className="productList__element__text">{element.caption}</p>
       </Link>
     </li>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;
