@@ -1,5 +1,6 @@
 #  API-SHOP COMPRAVENTA DE TECNOLOGÍA.
 
+![Imagen del menu principal](./public/images/Main.png)
 
 ### DESCRIPCIÓN
 
@@ -20,7 +21,7 @@ Catálogo de compraventa de artículos retro (consolas, PCs, etc). Quien busca a
 > ○ Email ○ Nombre ○ Password
 
 
-####Usuarios Registrados (pueden comprar y vender artículos)
+#### Usuarios Registrados (pueden comprar y vender artículos)
 ------------
 ##### Gestión del perfil:
 cambio de datos del registro con posibilidad de añadir biografía y foto de perfil
@@ -50,10 +51,9 @@ cambio de datos del registro con posibilidad de añadir biografía y foto de per
 ## IMAGENES
 ------------
 
-![Imagen del menu principal](./public/images/Main.png)
-![Imagen del menu principal](./public/images/filterProducts.png)
-![Imagen del menu principal](./public/images/productDetail.png)
-![Imagen del menu principal](./public/images/Compra.png)
+![Imagen de los filtros](./public/images/filterProducts.png)
+
+
 
 
 
