@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import SearchIcon from "../Icons/Search";
 
 export const Search = () => {
   const [text, setText] = useState("");
@@ -18,6 +19,7 @@ export const Search = () => {
 
   return (
     <form className="header__form" onSubmit={handleSubmit}>
+      {/* <SearchIcon className='header__form__search'/>  */}
       <input
         className="header__input"
         type="text"

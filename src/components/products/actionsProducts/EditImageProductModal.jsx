@@ -71,7 +71,7 @@ export const EditImageProductModal = ({
     }
   };
 
-  if (loading) return <Loading classe="loader__products" />;
+ 
   if (error)
     return (
       <Modal>
@@ -96,7 +96,7 @@ export const EditImageProductModal = ({
 
   return (
     <form
-      className="profile__form__container"
+      className="formAdd__group"
       onSubmit={handleSubmit(onSubmit)}
     >
       {/* INPUT 1 */}

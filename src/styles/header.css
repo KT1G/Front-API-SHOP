@@ -28,9 +28,16 @@
 }
 .header__form {
   flex: 2;
+  position: relative;
+  
+}
+.header__form__search{
+  position: absolute;
+  top: .6rem;
+  right:1rem
 }
 .header__input {
-  width: 100%;
+  width: 100%;  
   font-size: 1.3rem; 
   border-radius: 20px;
   padding: 0.4em 0.7em;

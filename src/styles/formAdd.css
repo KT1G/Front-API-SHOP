@@ -88,6 +88,8 @@
 
 .formAdd__group__label--file{
   display: flex;
+  width: 100%;  
+  min-width: 12rem;
   flex-direction: column;
   min-height: 5rem;
   padding: .5rem;

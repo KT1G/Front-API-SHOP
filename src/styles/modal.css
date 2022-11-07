@@ -9,6 +9,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 5px 14px 4px rgb(0 0 0 / 30%);
 }
 
 .modal__filter {
@@ -17,7 +18,7 @@
   max-width: 700px;
   position: absolute;
   left: 20rem;
-  top: 29rem;
+  top: 32rem;
   gap: 1rem;
   border-radius: 10px;
   display: flex;

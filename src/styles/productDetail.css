@@ -107,6 +107,10 @@
 
 .productInfo__image__container {
   max-height: 35rem;
+  border-radius: 14px;
+ 
+  display: flex;
+  justify-content: center;
   width: 100%;
   overflow: hidden;
   border-radius: 12px;
@@ -115,12 +119,15 @@
 .productInfo__image__button {
   padding: 0;
   border: none;
+  background-color: transparent;
+  width: 100%;
   cursor: pointer;
 }
 
 .productInfo__image {
   width: 100%;
   border-radius: 14px;
+  background-color: white;
   max-height: 100%;
   min-height: 500px;
   -o-object-fit: cover;

@@ -6,12 +6,14 @@ import Modal from "../Modal/Modal";
 import "../../styles/productList.css";
 import { Products } from "../products/Products";
 import useProducts from "../../shared/hooks/useProducts";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Pagination } from "../products/Pagination";
 import HeaderProducts from "../products/HeaderProducts";
+import Button from "../Buttons/Button";
 
 export const ProductsProfileList = () => {
   const { id } = useParams();
+  const navigate = useNavigate()
   const { products, info, loading, error } = useProducts(
     (location) => `/products/filterBy/userId/${id}${location.search}`
   );
@@ -22,7 +24,7 @@ export const ProductsProfileList = () => {
     return (
       <Modal>
         <Message text={error} />
-        <ButtonTo text="Home" classe="modal__button" />
+        <Button handleClick={() => navigate(-1)} text='Volver' classe="modal__button" />
       </Modal>
     );
   return (

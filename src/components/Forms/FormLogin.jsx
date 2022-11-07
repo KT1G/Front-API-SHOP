@@ -57,7 +57,7 @@ const FormLogin = ({ onSubmit, loading }) => {
           placeholder=" "
         />
         <label className="form__group__label" htmlFor="password">
-          Password:
+        Contraseña:
         </label>
         <span className="form__group__line"></span>
         <EyeToggle visible={visible} setVisible={setVisible} />
