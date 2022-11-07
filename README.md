@@ -1,7 +1,7 @@
 #  API-SHOP COMPRAVENTA DE TECNOLOGÍA.
 
 
-###DESCRIPCIÓN
+### DESCRIPCIÓN
 
 Catálogo de compraventa de artículos retro (consolas, PCs, etc). Quien busca algo accede, selecciona lo que le interesa y solicita la compra al precio publicado.
 
@@ -25,7 +25,7 @@ Catálogo de compraventa de artículos retro (consolas, PCs, etc). Quien busca a
 ##### Gestión del perfil:
 cambio de datos del registro con posibilidad de añadir biografía y foto de perfil
 
-#####Búsqueda por:
+##### Búsqueda por:
 - Nombre.
 - Categoría.
 - Localidad.
