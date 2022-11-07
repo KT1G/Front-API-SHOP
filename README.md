@@ -49,3 +49,12 @@ cambio de datos del registro con posibilidad de añadir biografía y foto de per
 
 ## IMAGENES
 ------------
+
+![Imagen del menu principal](./public/images/Main.png)
+![Imagen del menu principal](./public/images/filterProducts.png)
+![Imagen del menu principal](./public/images/productDetail.png)
+![Imagen del menu principal](./public/images/Compra.png)
+
+
+
+
