@@ -48,10 +48,10 @@ cambio de datos del registro con posibilidad de añadir biografía y foto de per
 
 6. El comprador puede valorar al vendedor sólo después de la entrega.
 
-## IMAGENES
-------------
+## Video demo del resultado final!
+[![Alt text](https://img.youtube.com/vi/9Ry-4XGc1U4/0.jpg)](https://www.youtube.com/watch?v=9Ry-4XGc1U4)
 
-![Imagen de los filtros](./public/images/filterProducts.png)
+
 
 
 
